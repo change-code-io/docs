@@ -1,6 +1,6 @@
 input: .
 output: .retype
-url: # Add your website address here
+url: docs.changecode.io
 branding:
   title: Change Code Knowledgebase
   label: Docs
