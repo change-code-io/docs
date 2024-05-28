@@ -10,6 +10,10 @@ Before expanding on the architecture and processes involved in Change Credits di
 
 ### Hypercerts
 
+Hypercerts are on-chain, tokenized claims of positive impact. To be more precise, hypercerts represent *claims* of *work* done toward some beneficial outcome, be that work toward social or environmental impact or the building of a public good.
+
+A complete list of the on-chain token data and off-chain metadata included in a hypercert can be found in the [documentation]().
+
 
 *Token Standards*
 +++ ERC1155
