@@ -9,3 +9,6 @@ links:
   link: https://retype.com/guides/getting-started/
 footer:
   copyright: "&copy; Copyright {{ year }} Change Code, Inc. All rights reserved."
+
+  editor:
+    enabled: false

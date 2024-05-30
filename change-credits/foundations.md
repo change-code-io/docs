@@ -1,10 +1,16 @@
-# Background & Minting
+---
+label: Foundations
+layout: page
+order: -1
+---
+
+# Foundations
 
 Change Credits are a novel *financial* primitive supporting resource allocation, verification, and tracking of positive externalities (social and environmental impact).
 
 They are the basis and grounding of Change Code's economic engine, providing a real-world tangible link to underpin a new form of beneficial currency.
 
-## Foundation
+## Supporting Primitives and Infrastructure
 
 Before expanding on the architecture and processes involved in Change Credits directly, we should first recap (or introduce) some of the existing open-source tools and standards leveraged here.
 
@@ -33,36 +39,3 @@ ERC20 tokens are fully fungible and well suited for liquidity and open exchange.
 +++ ERC6551
 Referred to as "token bound accounts" (TBAs), ERC6551 tokens function as a form of smart contract wallet where an account is simultaneously able hold or mint tokens itself and be considered a token (an NFT more specifically) in its own right. Change Code leverages TBAs to serve as *treasury accounts* for the receipt of funds into projects and the minting of Change Credits.
 +++
-
-## Change Credit Minting
-
-Because Change Credits are only minted following confirmation of realized, tangible, and verifiable impact, there the process by which these assets are created follows a number of steps and involves multiple types of actors.
-
-```mermaid
-sequenceDiagram
-    actor Verifier
-    actor Good Generator
-    create participant hypercert (ERC1155)
-    Good Generator->>hypercert (ERC1155): mint impact goal
-    actor Change Code
-    Change Code--xhypercert (ERC1155): review impact goal
-    create participant Token Bound Account (ERC6551)
-    Change Code->>Token Bound Account (ERC6551): deploy treasury account
-    actor partner
-    loop
-        partner->>Token Bound Account (ERC6551): send $
-        Token Bound Account (ERC6551)->>partner: mint IOUs (ERC20)
-        Token Bound Account (ERC6551)->>Good Generator: remit funding received
-    end
-    loop
-        Good Generator-->Good Generator: implement project
-        Good Generator->>hypercert (ERC1155): submit evidence
-        Verifier--xhypercert (ERC1155): review evidence
-        Change Code--xhypercert (ERC1155): determine quantity
-        Change Code->>Token Bound Account (ERC6551): mint Change Credits (ERC721)
-    end
-    Loop
-        partner->>Token Bound Account (ERC6551): return IOUs
-        Token Bound Account (ERC6551)->>partner: receive Change Credits
-    end
-```
