@@ -1,10 +1,7 @@
 ---
 label: Minting Change Credits
-layout: page
 order: -2
 ---
-
-## Minting
 
 Because Change Credits are only minted following confirmation of realized, tangible, and verifiable impact, there the process by which these assets are created follows a number of steps and involves multiple types of actors.
 
@@ -28,10 +25,11 @@ Verifier
 sequenceDiagram
     actor Verifier
     actor Good Generator
+    actor Change Code
+    Good Generator-->Change Code: propose impact goal for review
     create participant hypercert (ERC1155)
     Good Generator->>hypercert (ERC1155): mint impact goal
     actor Change Code
-    Change Code--xhypercert (ERC1155): review impact goal
     create participant Token Bound Account (ERC6551)
     Change Code->>Token Bound Account (ERC6551): deploy treasury account
     actor partner
@@ -53,4 +51,11 @@ sequenceDiagram
     end
 ```
 
-The above sequence diagram overviews the process of 
+The above sequence diagram overviews how Change Credits are created. While the system supports alternative flows to facilitate various forms of financing, we can consider this base form to have x steps.
+
+1. The Good Generator submits an impact goal and plan for review by Change Code, as part of their onboarding process. Once approved to mint via the Changescape, the Good Generator mints their hypercert, signalling the beginning for their project.
+2. After the projects' hypercert has been deployed, Change Code deploys an associated Token Bound Account (TBA) to act as a treasury for the project to receive funds into and mint tokens from.
+3. Partners begin contributing funds into the project's TBA in exchange for IOUs redeemable for Change Credits once the latter begin to be minted. These funds are then remitted to an account from which the Good Generator can spend to cover the costs of their work. This process can be done in an open-ended asynchronous manner, with funds being contributed to the project through the project's lifespan.
+4. As the Good Generator carries out their work to produce impact, they periodically submit evidence for review. This evidence is stored as records tied to their original hypercert and can be accessed by specified Verifiers.
+5. Once evidence is confirmed by Verifiers, Change Code intakes the data provided to assign a quantity of Change Credits to be created and mints them via the project's TBA.
+6. With Change Credits minted and available via the TBA, the project's Partners can redeem their IOUs and receive their proportional share of Change Credits.

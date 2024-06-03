@@ -1,10 +1,7 @@
 ---
 label: Foundations
-layout: page
 order: -1
 ---
-
-# Foundations
 
 Change Credits are a novel *financial* primitive supporting resource allocation, verification, and tracking of positive externalities (social and environmental impact).
 
@@ -35,7 +32,7 @@ ERC721 is the most widely adopted token standard for NFTs. The standard is well 
 +++ ERC1155
 Hypercerts adhere to the ERC1155 standard for semi-fungible tokens. This mixed standard, existing in the divide between fungible and non-fungible tokens, offers ideal flexibility for the unique requirements of the hypercerts standard.
 +++ ERC20
-ERC20 tokens are fully fungible and well suited for liquidity and open exchange. IOUs issued in anticipation of Change Credits themselves are minted as ERC20 tokens to support the emergence of free exchange by holders who may wish to access liquidity.
+ERC20 tokens are fully fungible and well suited for liquidity and open exchange. IOUs issued in anticipation of Change Credits are minted as ERC20 tokens to support the emergence of free exchange by holders who may wish to access liquidity.
 +++ ERC6551
 Referred to as "token bound accounts" (TBAs), ERC6551 tokens function as a form of smart contract wallet where an account is simultaneously able hold or mint tokens itself and be considered a token (an NFT more specifically) in its own right. Change Code leverages TBAs to serve as *treasury accounts* for the receipt of funds into projects and the minting of Change Credits.
 +++

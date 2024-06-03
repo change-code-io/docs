@@ -1,10 +1,7 @@
 ---
 label: Contribution Guide
-layout: page
 order: -2
 ---
-
-# Contribution Guide
 
 ## Community Conduct
 

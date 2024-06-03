@@ -1,10 +1,7 @@
 ---
 label: Community Code of Conduct
-layout: page
 order: -1
 ---
-
-# Community Code of Conduct
 
 ## Our Pledge
 
