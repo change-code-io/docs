@@ -9,32 +9,32 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Welcome</title>
-    <meta name="title" content="Welcome">
-    <meta name="description" content="Welcome to the Change Code Knowledgebase. At Change Code we're building the tools for individuals and organizations to attest to and verify their...">
+    <title>Hypercerts</title>
+    <meta name="title" content="Hypercerts">
+    <meta name="description" content="Change Code leverages the Hypercerts protocol, in turn developed from the ERC1155 token standard for semi-fungible tokens.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.changecode.io/">
+    <link rel="canonical" href="https://docs.changecode.io/data-schemas/hypercerts/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.changecode.io/">
-    <meta property="og:title" content="Welcome">
-    <meta property="og:description" content="Welcome to the Change Code Knowledgebase. At Change Code we're building the tools for individuals and organizations to attest to and verify their...">
+    <meta property="og:url" content="https://docs.changecode.io/data-schemas/hypercerts/">
+    <meta property="og:title" content="Hypercerts">
+    <meta property="og:description" content="Change Code leverages the Hypercerts protocol, in turn developed from the ERC1155 token standard for semi-fungible tokens.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.changecode.io/">
-    <meta property="twitter:title" content="Welcome">
-    <meta property="twitter:description" content="Welcome to the Change Code Knowledgebase. At Change Code we're building the tools for individuals and organizations to attest to and verify their...">
+    <meta property="twitter:url" content="https://docs.changecode.io/data-schemas/hypercerts/">
+    <meta property="twitter:title" content="Hypercerts">
+    <meta property="twitter:description" content="Change Code leverages the Hypercerts protocol, in turn developed from the ERC1155 token standard for semi-fungible tokens.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="resources/css/retype.css?v=3.5.0.771520984609" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.771520984609" rel="stylesheet">
 
-    <script data-cfasync="false" src="resources/js/config.js?v=3.5.0.771520984609" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="resources/js/lunr.js?v=3.5.0.771520984609" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.771520984609" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.771520984609" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -49,7 +49,7 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="" class="flex items-center leading-snug text-xl">
+                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-xl">
                             <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Change Code Knowledgebase</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
                     </div>
@@ -149,16 +149,92 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="welcome" class="break-words">
+<doc-anchor-target id="hypercerts" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#welcome">#</doc-anchor-trigger>
-        <span>Welcome</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#hypercerts">#</doc-anchor-trigger>
+        <span>Hypercerts</span>
     </h1>
 </doc-anchor-target>
-<p>Welcome to the Change Code Knowledgebase. At Change Code we&#x27;re building the tools for individuals and organizations to attest to and verify their impact and package that data into a meaningfully representative impact asset. Ultimately, the goal of these assets is to provide an unrestricted, but still accountable revenue stream, reducing the cost of social enterprise and eventually removing the need for continuous and unpredictable outside funding. Change Code is creating financial and data primitives that reliably and scalably represent impact outputs and just as important, longer-term impact outcomes—pioneering token-based representations of consumable and capital impact assets.</p>
-<p>At the core of Change Code&#x27;s work is our belief that in order to actualy achieve the world&#x27;s sustainability and other impact goals, we must find a way to <em>make purpose profitable</em>. We are working to pioneer new financial primitives and tokenomics that will see impact itself emerge as the next asset class to be powered by web3.</p>
-<p>The <em>Changescape</em> is a multi-chain and multi-token dApp (decentralized application) engineered to support the tokenization, verification, and ultimate monetization of a new asset category, postive impact.</p>
-<p>If you&#x27;re interested in contributing to our work, navigate over to the <a href="contributing/contribution-guide/">Contributor Guide</a>.</p>
+<p>Change Code leverages the Hypercerts protocol, in turn developed from the ERC1155 token standard for semi-fungible tokens. While adhering to the requirements of the standard, Change Code modifies <em>how</em> some of the schema fields are used, adapting them to our theory of change and implementation needs.</p>
+<doc-anchor-target id="erc1155-fields">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#erc1155-fields">#</doc-anchor-trigger>
+        <span>ERC1155 Fields</span>
+    </h2>
+</doc-anchor-target>
+<dl>
+<dt>Name | <code v-pre>CC Hypercert | {Good Generator} {Index}</code></dt>
+<dd>The Hypercert name mirrors the name used for a project&#x27;s IOUs. The concept of an index is again used to support single organizations working across multiple initiatives.</dd>
+<dt>Description</dt>
+<dd>A description, not exceeding 200 characters, of the work to be done by the project.</dd>
+<dt>Image</dt>
+<dd>While the image field is required by the Hypercerts standard, we do not believe a single immutable image to be valuable for the purposes of serious impact validation. To satisfy this requirement, the Changescape backend will automatically generate and provide an image to satisfy the requirement.</dd>
+</dl>
+<doc-anchor-target id="hypercert-dimensions">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#hypercert-dimensions">#</doc-anchor-trigger>
+        <span>Hypercert Dimensions</span>
+    </h2>
+</doc-anchor-target>
+<dl>
+<dt>work_scope</dt>
+<dd>A list of tasks to be done by the project. In development parlance this is a list of <em>outputs</em>--e.g. # of solar panels installed, kilos of supplies, $ of direct aid, # of vaccines.</dd>
+<dt>work_timeframe</dt>
+<dd>The time period during which the work for the project is to be carried out. In line with the Hypercerts standard, this is represented as an ordered pair of UTC timestamps.</dd>
+<dt>impact_scope</dt>
+<dd>Inside the Changescape <code v-pre>impact scope</code> is used to refer thematically to projects by category. For example, the <a href="https://sdgs.un.org/goals">UN Sustainable Development Goals (SDGs)</a> or the <a href="https://ebfcommons.org/lex-icons/">Ecological Benefits Framework (EBF)</a>. Because the Hypercerts data is only aspirational, it would be premature to immutably publish indicators, which are instead reserved to be published only once verified inside Change Credits.</dd>
+<dt>impact_timeframe</dt>
+<dd>The time period during which impact <em>outcomes</em> will be measured and calculated. For Hypercerts inside the Changescape, the start time is set equal to the start time for the <code v-pre>work_timeframe</code> while the end time is set for the end of the work period plus five (5) years. Again this data is represented as an ordered pair of UTC timestamps.</dd>
+<dt>contributors</dt>
+<dd>A list of participants (organizations) that are contributing to the work done in the project. Each element in the list is composed of an on-chain address, a name, and a weight. The purpose of the weight is to signal relative contribution and may optionally be used to weight distributions among contributors.</dd>
+<dt>rights</dt>
+<dd>As of version 1.0 of the Hypercerts standard, this value can only be set to <em>public display</em>. As it is a required field, Change Code simply applies the default value but does not otherwise use this information.</dd>
+<dt>hidden_properties</dt>
+<dd>In development</dd>
+</dl>
+<doc-anchor-target id="example-hypercert-dimensions">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#example-hypercert-dimensions">#</doc-anchor-trigger>
+        <span>Example Hypercert Dimensions</span>
+    </h2>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&quot;hypercert&quot;: {
+    &quot;work_scope&quot;: {
+        &quot;name&quot;: &quot;Work Scope&quot;,
+        &quot;value&quot;: [&quot;sustainable land management&quot;],
+        &quot;excludes&quot;: [],
+        &quot;display_value&quot;: &quot;sustainable land management&quot;
+    },
+    &quot;impact_scope&quot;: {
+        &quot;name&quot;: &quot;Impact Scope&quot;,
+        &quot;value&quot;: [SDG 13], [SDG 15]
+        &quot;excludes&quot;: [],
+        &quot;display_value&quot;: &quot;SDG 13 - Climate Action&quot;, &quot;SDG 15 - Life on Land&quot;
+    },    
+    &quot;work_timeframe&quot;: {
+        &quot;name&quot;: &quot;Work Timeframe&quot;,
+        &quot;value&quot;: [1704096000, 1735711200],
+        &quot;display_value&quot;: &quot;2024-01-01 -&gt; 2024-12-31&quot;
+    },
+    &quot;impact_timeframe&quot;: {
+        &quot;name&quot;: &quot;Impact Timeframe&quot;,
+        &quot;value&quot;: [1704096000, 1893477600],
+        &quot;display_value&quot;: &quot;2024-01-01 -&gt; 2030-12-31&quot;
+    },
+    &quot;contributors&quot;: {
+        &quot;name&quot;: &quot;Contributors&quot;,
+        &quot;value&quot;: [&quot;0xa1fa1fa000000000000000000000000000000000&quot;, &quot;Project Developer&quot;, 0.9], [&quot;0xa1fa1fa000000000000000000000000000000000&quot;, &quot;Carbon Standards Body&quot;, 0.1]
+        &quot;display_value&quot;: &quot;Project Developer&quot;, &quot;Carbon Standards Body&quot;
+    },
+    &quot;rights&quot;: {
+        &quot;name&quot;: &quot;Rights&quot;,
+        &quot;value&quot;: [&quot;Public Display&quot;],
+        &quot;display_value&quot;: &quot;Public Display&quot;
+    }
+}</code></pre>
+</doc-codeblock></div>
+<p>Additional details on the Hypercerts implementation itself can be found in the documentation <a href="https://hypercerts.org/docs/implementation/metadata">here</a>.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -168,13 +244,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../change-credits/cc-minting/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Minting Change Credits</span>
+                                            </span>
+                                        </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="change-credits/foundations/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../data-schemas/ious/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Foundations</span>
+                                                <span class="block mt-1">IO​Us</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -218,6 +301,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Welcome", isRoot: true, level: 0, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Hypercerts", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
