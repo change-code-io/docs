@@ -41,7 +41,7 @@ hidden_properties
 
 ## Example Hypercert Dimensions
 
-```
+```json
 "hypercert": {
     "work_scope": {
         "name": "Work Scope",

@@ -7,5 +7,5 @@ branding:
 footer:
   copyright: "&copy; Copyright {{ year }} Change Code, Inc. All rights reserved."
 
-  editor:
+editor:
     enabled: false
