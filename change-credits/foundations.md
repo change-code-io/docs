@@ -13,9 +13,13 @@ Before expanding on the architecture and processes involved in Change Credits di
 
 ### Hypercerts
 
-Hypercerts are on-chain, tokenized claims of positive impact. To be more precise, hypercerts represent *claims* of *work* done toward some beneficial outcome, be that work toward social or environmental impact or the building of a public good.
+Hypercerts are on-chain, tokenized claims of positive impact. To be more precise, hypercerts represent *claims* of *work* to be done toward some beneficial outcome, be that work toward social or environmental impact or the building of a public good.
 
-A complete list of the on-chain token data and off-chain metadata included in a hypercert can be found in the [documentation](https://hypercerts.org/docs/implementation/metadata). Importantly for our purposes and designs, there is no included support for verification that the work was completed or efficacious. This will therefore be addressed using another foundation public good, the Ethereum Attestation Service (EAS). However, the hypercerts specification does include a field for a list of contributors. Change Credits takes advantage of this encoding to record contributions of the actual work being done, while tracking *financial partners* through ownership of Change Credits themselves.
+!!!
+It is worth noting that the relationship between Hypercerts and the status of positive impact is not currently settled. Some usages lean toward only representing work already done while other implementations represent plans for future work as Hypercerts instead. Inside the Change Code implementation, we will default to the latter interpretation, with Hypercerts issued as a way to commit to future work.
+!!!
+
+A complete list of the on-chain token data and off-chain metadata included in a hypercert can be found in the [documentation](https://hypercerts.org/docs/implementation/metadata). Importantly, for our purposes and designs, there is no included support for verification that the work was completed or efficacious. This will therefore be addressed using another foundation public good, the Ethereum Attestation Service (EAS). However, the hypercerts specification does include a field for a list of contributors. Change Credits takes advantage of this encoding to record contributions of the actual work done, while tracking *financial partners* through ownership of Change Credits themselves.
 
 ### Ethereum Attestation Service (EAS)
 
@@ -28,7 +32,7 @@ While not tokens themselves (more on that [here](https://docs.attest.org/docs/co
 To maintain maximum compatibility across existing wallets and infrastructure, the Change Credits architecture leverages only broadly accepted ERC token standards. Change Credits themselves are minted as NFTs (non-fungible tokens) through the ERC721 standard.
 
 +++ ERC721
-ERC721 is the most widely adopted token standard for NFTs. The standard is well tested, and enjoys near universal support across wallet implementations.
+ERC721 is the most widely adopted token standard for NFTs. The standard is well-tested, and enjoys near-universal support across wallet implementations.
 +++ ERC1155
 Hypercerts adhere to the ERC1155 standard for semi-fungible tokens. This mixed standard, existing in the divide between fungible and non-fungible tokens, offers ideal flexibility for the unique requirements of the hypercerts standard.
 +++ ERC20

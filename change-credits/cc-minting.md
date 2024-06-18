@@ -3,7 +3,7 @@ label: Minting Change Credits
 order: -2
 ---
 
-Because Change Credits are only minted following confirmation of realized, tangible, and verifiable impact, there the process by which these assets are created follows a number of steps and involves multiple types of actors.
+Because Change Credits are only minted following confirmation of realized, tangible, and verifiable impact, the process by which these assets are created follows a number of steps and involves multiple types of actors.
 
 ### Participants
 
@@ -53,7 +53,7 @@ sequenceDiagram
 
 The above sequence diagram overviews how Change Credits are created. While the system supports alternative flows to facilitate various forms of financing, we can consider this base form to have x steps.
 
-1. The Good Generator submits an impact goal and plan for review by Change Code, as part of their onboarding process. Once approved to mint via the Changescape, the Good Generator mints their hypercert, signalling the beginning for their project.
+1. The Good Generator submits an impact goal and plan for review by Change Code, as part of their onboarding process. Once approved to mint via the Changescape, the Good Generator mints their hypercert, signaling the beginning for their project.
 2. After the projects' hypercert has been deployed, Change Code deploys an associated Token Bound Account (TBA) to act as a treasury for the project to receive funds into and mint tokens from.
 3. Partners begin contributing funds into the project's TBA in exchange for IOUs redeemable for Change Credits once the latter begin to be minted. These funds are then remitted to an account from which the Good Generator can spend to cover the costs of their work. This process can be done in an open-ended asynchronous manner, with funds being contributed to the project through the project's lifespan.
 4. As the Good Generator carries out their work to produce impact, they periodically submit evidence for review. This evidence is stored as records tied to their original hypercert and can be accessed by specified Verifiers.
