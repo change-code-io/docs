@@ -38,11 +38,10 @@ sequenceDiagram
         Token Bound Account (ERC6551)->>partner: mint IOUs (ERC20)
         Token Bound Account (ERC6551)->>Good Generator: remit funding received
     end
+    Good Generator-->Good Generator: implement project
     loop
-        Good Generator-->Good Generator: implement project
-        Good Generator->>hypercert (ERC1155): submit evidence
+        Good Generator->>hypercert (ERC1155): submit impact evidence
         Verifier--xhypercert (ERC1155): review evidence
-        Change Code--xhypercert (ERC1155): assign token quantity
         Change Code->>Token Bound Account (ERC6551): mint Change Credits (ERC721)
     end
     Loop
