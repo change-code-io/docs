@@ -5,10 +5,10 @@ order: -2
 
 IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs before they are redeemed for Change Credits.
 
-To define a batch of IOUs inside the Changescape the following specifications are made:
+To define a batch of IOUs inside the Changescape, the following specifications are made:
 
 Name | `CC IOU | {Good Generator} {Index}`
-:   The token name assigned to each batch of IOUs always begins with "CC IOU", this is then followed by the name of the Good Generator and an index. The purpose of the index is to differentiate between different projects from one Good Generator.
+:   The token name assigned to each batch of IOUs always begins with "CC IOU". This is then followed by the name of the Good Generator and an index. The purpose of the index is to differentiate between different projects from one Good Generator.
 
 Symbol | `CC-IOU-{ProjectID}`
 :   The abbreviated token symbol begins "CC-IOU" and is followed by a project ID, where the project ID is composed of the unique ID assigned to the project's Good Generator followed by the project's index value.

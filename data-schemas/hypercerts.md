@@ -3,7 +3,7 @@ label: Hypercerts
 order: -1
 ---
 
-Change Code leverages the Hypercerts protocol, in turn developed from the ERC1155 token standard for semi-fungible tokens. While adhering to the requirements of the standard, Change Code modifies *how* some of the schema fields are used, adapting them to our theory of change and implementation needs.
+Change Code leverages the Hypercerts protocol, itself developed from the ERC1155 token standard for semi-fungible tokens. While adhering to the requirements of the standard, Change Code modifies *how* some of the schema fields are used, adapting them to our theory of change and implementation needs.
 
 ## ERC1155 Fields
 
@@ -22,7 +22,7 @@ work_scope
 :   A list of tasks to be done by the project. In development parlance this is a list of *outputs*--e.g. # of solar panels installed, kilos of supplies, $ of direct aid, # of vaccines.
 
 work_timeframe
-:   The time period during which the work for the project is to be carried out. In line with the Hypercerts standard, this is represented as an ordered pair of UTC timestamps.
+:   The time period during which the project work is to be carried out. In line with the Hypercerts standard, this is represented as an ordered pair of UTC timestamps.
 
 impact_scope
 :   Inside the Changescape `impact scope` is used to refer thematically to projects by category. For example, the [UN Sustainable Development Goals (SDGs)](https://sdgs.un.org/goals) or the [Ecological Benefits Framework (EBF)](https://ebfcommons.org/lex-icons/). Because the Hypercerts data is only aspirational, it would be premature to immutably publish indicators, which are instead reserved to be published only once verified inside Change Credits.
