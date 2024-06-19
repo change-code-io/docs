@@ -47,4 +47,10 @@ impactQuantity | `int64[]`
 evidenceDocumentation | `bytes32[]`
 :   IPFS reference to any documentation the Verifier wishes to provide.
 
-As described in the Change Credit [minting flow](../change-credits/cc-minting.md), data may be provided by a Good Generator periodically across multiple submissions as the project progresses over time. Because of this flexibility, a single Hypercert may see multiple claim attestations made, consequently the hypercertID is not sufficient to uniquely identify a claim. To resolve this, each verification attestation points to a corresponding claim attestation through an [`refUID`](https://docs.attest.org/docs/tutorials/referenced-attestations).
+As described in the Change Credit [verification flow](../change-credits/verification.md), data may be provided by a Good Generator periodically across multiple submissions as the project progresses over time. Because of this flexibility, a single Hypercert may see multiple claim attestations made, consequently the hypercertID is not sufficient to uniquely identify a claim. To resolve this, each verification attestation points to a corresponding claim attestation through an [`refUID`](https://docs.attest.org/docs/tutorials/referenced-attestations).
+
+## Data Storage
+
+Because the Changescape is designed as a cross-chain or multi-chain protocol, the matter of data storage for attestations is especially important. EAS supports either on-chain or off-chain attestation storage, with the former option being both more expensive and more conducive to a single chain experience.
+
+Changescape attestations are instead stored off-chain via the [Ceramic Network](https://developers.ceramic.network/docs/introduction/intro), a decentralized database network that supports InterPlanetary File System (IPFS). While remaining chain-agonistic for both writing and reading data, Ceramic manages to provide immutability by periodically [merklizing](https://docs.attest.org/docs/tutorials/ceramic-storage#ceramic-as-a-data-ledger) all updates and publishing the root to the Ethereum chain.
