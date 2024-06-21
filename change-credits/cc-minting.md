@@ -5,7 +5,7 @@ order: -2
 
 Because Change Credits are only minted following confirmation of realized, tangible, and verifiable impact, the process by which these assets are created follows a number of steps and involves multiple types of actors.
 
-### Participants
+## Participants
 
 Good Generator
 :   A Good Generator is the implementing organization responsible for seeing the planned impact results achieved. It is through the actions of this entity, often an NGO or social enterprise, that positive externalities are produced. Because contributions and funds can be seamlessly fractionalized and divided, a Good Generator can also be a collection of multiple contributors working collaboratively.
@@ -19,7 +19,7 @@ Partner
 Verifier
 :   Verifiers exist to both validate, measure, and quantify any impact produced. Verifiers are defined by the Good Generator of the project with a focus on local context and relevant expertise. Verification can be conducted by a single individual or organization or the responsibility can be dispersed through a set of Verifiers with a specified quorum required.
 
-### Minting Flow
+## Minting Flow
 
 ```mermaid
 sequenceDiagram
@@ -60,3 +60,5 @@ The above sequence diagram overviews how Change Credits are created. While the s
 4. As the Good Generator carries out their work to produce impact, they periodically submit evidence for review. This evidence is published via the Ethereum Attestation Service (EAS). These claims are then reviewed and approved or rejected by Verifiers.
 5. Once evidence is confirmed by Verifiers, Change Code intakes the data provided to assign a quantity of Change Credits to be created and mints them via the project's TBA.
 6. With Change Credits minted and available via the TBA, the project's Partners can redeem their IOUs and receive their proportional share of Change Credits.
+
+## Change Credit Ownership
