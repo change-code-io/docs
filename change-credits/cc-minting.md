@@ -62,3 +62,5 @@ The above sequence diagram overviews how Change Credits are created. While the s
 6. With Change Credits minted and available via the TBA, the project's Partners can redeem their IOUs and receive their proportional share of Change Credits.
 
 ## Change Credit Ownership
+
+As detailed [here], a key utility of Change 
