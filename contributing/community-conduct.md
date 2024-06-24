@@ -17,11 +17,11 @@ Examples of behavior that contributes to a positive environment for our communit
 * Being respectful of differing opinions, viewpoints, and experiences;
 * Giving and gracefully accepting constructive feedback;
 * Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience;
-* Focusing on what is best not just for us as individuals, but for the overall community;
+* Focusing on what is best not just for us as individuals but for the overall community;
 
 Examples of unacceptable behavior include:
 
-* The use of sexualized language or imagery, and sexual attention or advances of any kind;
+* The use of sexualized language or imagery and sexual attention or advances of any kind;
 * Trolling, insulting or derogatory comments, and personal or political attacks;
 * Public or private harassment;
 * Publishing others' private information, such as a physical or email address, or revealing any pseudonymous identity without their explicit permission;
@@ -33,7 +33,7 @@ Change Code's leadership is responsible for clarifying and enforcing our standar
 
 Change Code has the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, and will communicate reasons for moderation decisions when appropriate.
 
-Enforcement of this code will sometimes be a challenging exercise in judgement and conflicting values. We recognize that members may not always agree with a given course of action or remedy, but Change Code commits to always being transparent in how decisions have been made.
+Enforcement of this code will sometimes be a challenging exercise in judgment and conflicting values. We recognize that members may not always agree with a given course of action or remedy, but Change Code commits to always being transparent in how decisions have been made.
 
 ## Scope
 
