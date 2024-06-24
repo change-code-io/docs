@@ -18,6 +18,9 @@ Change Credits are implemented as follows:
 `tokenURI`
 :   The `tokenURI` sets the IPFS link to the metadata (defined below) with further details of the NFT. The Change Credit implementation includes the [`ERC721URIStorage`](https://docs.openzeppelin.com/contracts/5.x/api/token/erc721#ERC721URIStorage) extension so that each instance of token in the set can have its own unique metadata.
 
+`minContribution`
+:   The `minContribution` specifies the smallest monetary contribution that can be made to a project to mint a Change Credit. This variable sets a minimum only on price and is not intended to be a mechanic for any further price action.
+
 `Metadata`
 :   Included here is the json schema for the metadata stored at the NFT's `tokenURI`. The first 4 properties are included to comply with the metadata structure set by NFT marketplaces and viewers such as [OpenSea](https://docs.opensea.io/docs/metadata-standards). 
 ```json
@@ -41,6 +44,10 @@ Change Credits are implemented as follows:
         "display_type": "number",
         "trait_type": "Redemption",
         "value": "{Portion of the Change Credit that has already been redeemed by the holder}"
-    }]
+    },
+    {
+        "display_type": "number",
+        "trait_type": "Balance",
+        "value": "{Remaining balance after subtracting Retirement and Redemption}"}]
 }
 ```

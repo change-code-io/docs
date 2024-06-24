@@ -19,13 +19,13 @@ sequenceDiagram
     actor Good Generator
     actor Change Code
     participant EAS
-    participant Token Bound Account (ERC6551)
+    participant Treasury Account
     Good Generator-->Good Generator: implement project
     loop
         Good Generator->>EAS: publish claim attestation
         Verifier--xEAS: review evidence
         Verifier->>EAS: publish verification attestation
-        Change Code->>Token Bound Account (ERC6551): mint Change Credits (ERC721)
+        Change Code->>Treasury Account: mint Change Credits (ERC721)
     end
 ```
 
