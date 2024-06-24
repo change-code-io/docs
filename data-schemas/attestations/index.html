@@ -9,24 +9,24 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>IOUs</title>
-    <meta name="title" content="IOUs">
-    <meta name="description" content="IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs...">
+    <title>Attestation Schemas</title>
+    <meta name="title" content="Attestation Schemas">
+    <meta name="description" content="The Changescape leverage the Ethereum Attestation Service (EAs) to manage both initial claims of quantifiable impact as well as the verification of...">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.changecode.io/data-schemas/ious/">
+    <link rel="canonical" href="https://docs.changecode.io/data-schemas/attestations/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.changecode.io/data-schemas/ious/">
-    <meta property="og:title" content="IOUs">
-    <meta property="og:description" content="IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs...">
+    <meta property="og:url" content="https://docs.changecode.io/data-schemas/attestations/">
+    <meta property="og:title" content="Attestation Schemas">
+    <meta property="og:description" content="The Changescape leverage the Ethereum Attestation Service (EAs) to manage both initial claims of quantifiable impact as well as the verification of...">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.changecode.io/data-schemas/ious/">
-    <meta property="twitter:title" content="IOUs">
-    <meta property="twitter:description" content="IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs...">
+    <meta property="twitter:url" content="https://docs.changecode.io/data-schemas/attestations/">
+    <meta property="twitter:title" content="Attestation Schemas">
+    <meta property="twitter:description" content="The Changescape leverage the Ethereum Attestation Service (EAs) to manage both initial claims of quantifiable impact as well as the verification of...">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -149,25 +149,92 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="ious" class="break-words">
+<doc-anchor-target id="attestation-schemas" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#ious">#</doc-anchor-trigger>
-        <span>IOUs</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#attestation-schemas">#</doc-anchor-trigger>
+        <span>Attestation Schemas</span>
     </h1>
 </doc-anchor-target>
-<p>IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs before they are redeemed for Change Credits.</p>
-<p>IOUs are minted according the the below specification:</p>
+<p>The Changescape leverage the Ethereum Attestation Service (EAs) to manage both initial claims of quantifiable impact as well as the verification of any claimed impact. The schemas for representing both of these attestations are specified below while an excellent overview around attestations and schemas can be found in the <a href="https://docs.attest.org/docs/category/core-concepts">EAS documentation</a>.</p>
+<doc-anchor-target id="claim-schema">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#claim-schema">#</doc-anchor-trigger>
+        <span>Claim Schema</span>
+    </h2>
+</doc-anchor-target>
+<p>Before data can be verified it must first be attested to (or claimed) by the Good Generator(s). It is important to note that this is a separate requirement from the creation of a project&#x27;s Hypercert. As can be seen from Change Code&#x27;s Hypercert <a href="../hypercerts/">specification</a>, the Hypercert is published before a project&#x27;s work begins and accordingly would not have any information regarding results.</p>
 <dl>
-<dt><code v-pre>Token Name</code> | CC IOU | {Good Generator} {Index}</dt>
-<dd>The token name assigned to each batch of IOUs always begins with &quot;CC IOU&quot;. This is then followed by the name of the Good Generator and an index. The purpose of the index is to differentiate between different projects from one Good Generator.</dd>
-<dt><code v-pre>Token Symbol</code> | CC-IOU-{ProjectID}</dt>
-<dd>The abbreviated token symbol begins &quot;CC-IOU&quot; and is followed by a project ID, where the project ID is composed of the unique ID assigned to the project&#x27;s Good Generator followed by the project&#x27;s index value.</dd>
-<dt><code v-pre>Total Supply</code></dt>
-<dd>The supply of a project&#x27;s IOUs will vary over its lifecycle. Initially, a target number of tokens as specified in the project&#x27;s hypercert will be minted and held in the project&#x27;s token bound account. As IOUs are redeemed for Change Credits, the IOUs returned to the TBA are subsequently burned.</dd>
-<dt><code v-pre>Supply Cap</code></dt>
-<dd>IOUs are implemented including the <code v-pre>ERC20Capped</code> extension. As such, the Good Generator can specify that the supply of all IOUs is capped at the initial supply set in their target.</dd>
+<dt>hypercertID | <code v-pre>bytes32</code></dt>
+<dd>Every attestation must link to the Hypercert of the project for which it is claiming impact. This is accomplished by including the Hypercert&#x27;s unique 32 byte identifier.</dd>
+<dt>impactUnit | <code v-pre>string[]</code></dt>
+<dd>The unit according to which the impact or positive externality is quantified--e.g. metric tons of carbon sequestered, liters of clean water, vaccine doses administered, etc.</dd>
+<dt>impactQuantity | <code v-pre>int64[]</code></dt>
+<dd>The quantity of impact claimed according to the unit specified in the attestation.</dd>
+<dt>evidenceDocumentation | <code v-pre>bytes32[]</code></dt>
+<dd>IPFS reference to any documentation the Good Generator wishes for the verifiers to review in order to assess the claims made.</dd>
 </dl>
-<p>For more information regarding the ERC20 token standard, we refer you to documentation maintained by OpenZeppelin <a href="https://docs.openzeppelin.com/contracts/5.x/api/token/erc20">here</a>.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-300"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-300" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Note</h5>
+<p>As each project (with a single Hypercert) may very well have more than one quantifiable metric, <em>impactValue</em>, <em>impactUnit</em>, and <em>evidenceDocumentation</em> can each support arrays or multiple entries each. This is indicated by the inclusion of <code v-pre>[]</code> in each.</p>
+        </div>
+    </div>
+</div>
+<p>While not explicitly part of the attestation schema, claim attestations made inside the Changescape include a modified version of the <a href="https://docs.attest.org/docs/tutorials/resolver-contracts#attester-resolver"><code v-pre>Attestor Resolver</code></a> contract in order to allow Good Generator&#x27;s submitting claims to name specific Verifiers along with a quorum of those Verifiers required for the claim to be considered verified.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-yellow-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Acknowledgement</h5>
+<p>We recognize that having Good Generator&#x27;s list allowed Verifiers may create issues of objectivity or conflict. In future versions of the Changescape, this setup will be replaced with a form of token gating through which only recognized experts can stake a form of reputation to evaluate projects.</p>
+        </div>
+    </div>
+</div>
+<doc-anchor-target id="verification-schema">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#verification-schema">#</doc-anchor-trigger>
+        <span>Verification Schema</span>
+    </h2>
+</doc-anchor-target>
+<p>The second attestation schema structures verifications (or refutations) in reference to impact claims so that Change Credits can be appropriately issued.</p>
+<dl>
+<dt>hypercertID | <code v-pre>bytes32</code></dt>
+<dd>Every attestation must link to the Hypercert of the project being reviewed. As with the claim schema, this is accomplished by including the Hypercert&#x27;s unique 32 byte identifier.</dd>
+<dt>impactUnit | <code v-pre>bool[]</code></dt>
+<dd>This boolean field is used by Verifiers to either accept (true) or reject (false) the proposed set of impact units.</dd>
+<dt>impactQuantity | <code v-pre>int64[]</code></dt>
+<dd>Provided an impact unit is accepted, this field captures the quantity of impact produced according to the attesting Verifier.</dd>
+<dt>evidenceDocumentation | <code v-pre>bytes32[]</code></dt>
+<dd>IPFS reference to any documentation the Verifier wishes to provide.</dd>
+</dl>
+<p>As described in the Change Credit <a href="../../change-credits/verification/">verification flow</a>, data may be provided by a Good Generator periodically across multiple submissions as the project progresses over time. Because of this flexibility, a single Hypercert may see multiple claim attestations made, consequently the hypercertID is not sufficient to uniquely identify a claim. To resolve this, each verification attestation points to a corresponding claim attestation through an <a href="https://docs.attest.org/docs/tutorials/referenced-attestations"><code v-pre>refUID</code></a>.</p>
+<doc-anchor-target id="data-storage">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#data-storage">#</doc-anchor-trigger>
+        <span>Data Storage</span>
+    </h2>
+</doc-anchor-target>
+<p>Because the Changescape is designed as a cross-chain or multi-chain protocol, the matter of data storage for attestations is especially important. EAS supports either on-chain or off-chain attestation storage, with the former option being both more expensive and more conducive to a single chain experience.</p>
+<p>Changescape attestations are instead stored off-chain via the <a href="https://developers.ceramic.network/docs/introduction/intro">Ceramic Network</a>, a decentralized database network that supports InterPlanetary File System (IPFS). While remaining chain-agonistic for both writing and reading data, Ceramic manages to provide immutability by periodically <a href="https://docs.attest.org/docs/tutorials/ceramic-storage#ceramic-as-a-data-ledger">merklizing</a> all updates and publishing the root to the Ethereum chain.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -177,20 +244,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../data-schemas/hypercerts/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../data-schemas/ious/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Hypercerts</span>
+                                                <span class="block mt-1">IO​Us</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../data-schemas/attestations/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../data-schemas/change-credits-spec/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Attestation Schemas</span>
+                                                <span class="block mt-1">Change Credits</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -234,6 +301,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "IOUs", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Attestation Schemas", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

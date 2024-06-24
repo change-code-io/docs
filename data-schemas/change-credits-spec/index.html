@@ -9,24 +9,24 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>IOUs</title>
-    <meta name="title" content="IOUs">
-    <meta name="description" content="IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs...">
+    <title>Change Credits</title>
+    <meta name="title" content="Change Credits">
+    <meta name="description" content="Change Credits are non-fungible (NFT) tokens implemented according to the ERC721 standard, the most commonly used NFT standard in web3.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.changecode.io/data-schemas/ious/">
+    <link rel="canonical" href="https://docs.changecode.io/data-schemas/change-credits-spec/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.changecode.io/data-schemas/ious/">
-    <meta property="og:title" content="IOUs">
-    <meta property="og:description" content="IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs...">
+    <meta property="og:url" content="https://docs.changecode.io/data-schemas/change-credits-spec/">
+    <meta property="og:title" content="Change Credits">
+    <meta property="og:description" content="Change Credits are non-fungible (NFT) tokens implemented according to the ERC721 standard, the most commonly used NFT standard in web3.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.changecode.io/data-schemas/ious/">
-    <meta property="twitter:title" content="IOUs">
-    <meta property="twitter:description" content="IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs...">
+    <meta property="twitter:url" content="https://docs.changecode.io/data-schemas/change-credits-spec/">
+    <meta property="twitter:title" content="Change Credits">
+    <meta property="twitter:description" content="Change Credits are non-fungible (NFT) tokens implemented according to the ERC721 standard, the most commonly used NFT standard in web3.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -35,6 +35,7 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.772571311481" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.772571311481" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.772571311481" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -149,25 +150,57 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="ious" class="break-words">
+<doc-anchor-target id="change-credits" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#ious">#</doc-anchor-trigger>
-        <span>IOUs</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#change-credits">#</doc-anchor-trigger>
+        <span>Change Credits</span>
     </h1>
 </doc-anchor-target>
-<p>IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs before they are redeemed for Change Credits.</p>
-<p>IOUs are minted according the the below specification:</p>
+<p>Change Credits are non-fungible (NFT) tokens implemented according to the ERC721 standard, the most commonly used NFT standard in web3. The motivation to use non-fungible tokens, used most commonly as digital collectibles or as tools to control membership access, is two fold.</p>
+<p>First, Good Generators may elect to confer invitations to events or provide partner only forms of communication or community. These uses of &quot;token gating&quot; are well solved by NFTs as they provide clearest binary between partners (those who hold a project&#x27;s NFT) and others. The second consideration for constructing Change Credits as NFTs is admittedly more abstract. While there is no ignoring the fact that larger contributions to projects can have a larger impact, it is important to emphasize and embrace the idea that simply partnering for impact in the first place and at any level of contribution is the most important step one can take.</p>
+<p>Change Credits are implemented as follows:</p>
 <dl>
-<dt><code v-pre>Token Name</code> | CC IOU | {Good Generator} {Index}</dt>
-<dd>The token name assigned to each batch of IOUs always begins with &quot;CC IOU&quot;. This is then followed by the name of the Good Generator and an index. The purpose of the index is to differentiate between different projects from one Good Generator.</dd>
-<dt><code v-pre>Token Symbol</code> | CC-IOU-{ProjectID}</dt>
+<dt><code v-pre>Name</code> | CC | {Good Generator} {Index}</dt>
+<dd>The token name assigned to each set of Change Credits always begins with &quot;CC&quot;. This is then followed by the name of the Good Generator and an index. The purpose of the index is to differentiate between different projects from one Good Generator.</dd>
+<dt><code v-pre>Symbol</code> | CC-{ProjectID}</dt>
 <dd>The abbreviated token symbol begins &quot;CC-IOU&quot; and is followed by a project ID, where the project ID is composed of the unique ID assigned to the project&#x27;s Good Generator followed by the project&#x27;s index value.</dd>
-<dt><code v-pre>Total Supply</code></dt>
-<dd>The supply of a project&#x27;s IOUs will vary over its lifecycle. Initially, a target number of tokens as specified in the project&#x27;s hypercert will be minted and held in the project&#x27;s token bound account. As IOUs are redeemed for Change Credits, the IOUs returned to the TBA are subsequently burned.</dd>
-<dt><code v-pre>Supply Cap</code></dt>
-<dd>IOUs are implemented including the <code v-pre>ERC20Capped</code> extension. As such, the Good Generator can specify that the supply of all IOUs is capped at the initial supply set in their target.</dd>
+<dt><code v-pre>tokenURI</code></dt>
+<dd>The <code v-pre>tokenURI</code> sets the IPFS link to the metadata (defined below) with further details of the NFT. The Change Credit implementation includes the <a href="https://docs.openzeppelin.com/contracts/5.x/api/token/erc721#ERC721URIStorage"><code v-pre>ERC721URIStorage</code></a> extension so that each instance of token in the set can have its own unique metadata.</dd>
+<dt><code v-pre>minContribution</code></dt>
+<dd>The <code v-pre>minContribution</code> specifies the smallest monetary contribution that can be made to a project to mint a Change Credit. This variable sets a minimum only on price and is not intended to be a mechanic for any further price action.</dd>
+<dt><code v-pre>Metadata</code></dt>
+<dd>
+<p>Included here is the json schema for the metadata stored at the NFT&#x27;s <code v-pre>tokenURI</code>. The first 4 properties are included to comply with the metadata structure set by NFT marketplaces and viewers such as <a href="https://docs.opensea.io/docs/metadata-standards">OpenSea</a>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+&quot;description&quot;: &quot;{A description, not exceeding 200 characters, of the work accomplished by the project}&quot;, 
+&quot;external_url&quot;: &quot;{Unique Changescape URL}&quot;, 
+&quot;image&quot;: &quot;{link to Hypercert Image URL}&quot;, 
+&quot;name&quot;: &quot;CC | {Good Generator} {Index} {Serial #}&quot;,
+&quot;attributes&quot;: [
+{
+    &quot;display_type&quot;: &quot;number&quot;,
+    &quot;trait_type&quot;: &quot;Contribution&quot;,
+    &quot;value&quot;: &quot;{Total value of the contribution behind the Change Credit}&quot;
+},
+{
+    &quot;display_type&quot;: &quot;number&quot;,
+    &quot;trait_type&quot;: &quot;Retirement&quot;,
+    &quot;value&quot;: &quot;{Portion of the Change Credit that has already been retired by the Good Generator}&quot;
+},
+{
+    &quot;display_type&quot;: &quot;number&quot;,
+    &quot;trait_type&quot;: &quot;Redemption&quot;,
+    &quot;value&quot;: &quot;{Portion of the Change Credit that has already been redeemed by the holder}&quot;
+},
+{
+    &quot;display_type&quot;: &quot;number&quot;,
+    &quot;trait_type&quot;: &quot;Balance&quot;,
+    &quot;value&quot;: &quot;{Remaining balance after subtracting Retirement and Redemption}&quot;}]
+}</code></pre>
+</doc-codeblock></div>
+</dd>
 </dl>
-<p>For more information regarding the ERC20 token standard, we refer you to documentation maintained by OpenZeppelin <a href="https://docs.openzeppelin.com/contracts/5.x/api/token/erc20">here</a>.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -177,20 +210,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../data-schemas/hypercerts/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../data-schemas/attestations/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Hypercerts</span>
+                                                <span class="block mt-1">Attestation Schemas</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../data-schemas/attestations/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../contributing/community-conduct/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Attestation Schemas</span>
+                                                <span class="block mt-1">Community Code of Conduct</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -234,6 +267,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "IOUs", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Change Credits", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

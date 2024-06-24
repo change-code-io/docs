@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.771520984609">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.772571311481">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.771520984609" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.772571311481" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.771520984609" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.772571311481" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.771520984609" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.772571311481" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -170,8 +170,25 @@
         <span>Hypercerts</span>
     </h3>
 </doc-anchor-target>
-<p>Hypercerts are on-chain, tokenized claims of positive impact. To be more precise, hypercerts represent <em>claims</em> of <em>work</em> done toward some beneficial outcome, be that work toward social or environmental impact or the building of a public good.</p>
-<p>A complete list of the on-chain token data and off-chain metadata included in a hypercert can be found in the <a href="https://hypercerts.org/docs/implementation/metadata">documentation</a>. Importantly for our purposes and designs, there is no included support for verification that the work was completed or efficacious. This will therefore be addressed using another foundation public good, the Ethereum Attestation Service (EAS). However, the hypercerts specification does include a field for a list of contributors. Change Credits takes advantage of this encoding to record contributions of the actual work being done, while tracking <em>financial partners</em> through ownership of Change Credits themselves.</p>
+<p>Hypercerts are on-chain, tokenized claims of positive impact. To be more precise, hypercerts represent <em>claims</em> of <em>work</em> to be done toward some beneficial outcome, be that work toward social or environmental impact or the building of a public good.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>It is worth noting that the relationship between Hypercerts and the status of positive impact is not currently settled. Some usages lean toward only representing work already done while other implementations represent plans for future work as Hypercerts instead. Inside the Change Code implementation, we will default to the latter interpretation, with Hypercerts issued as a way to commit to future work.</p>
+        </div>
+    </div>
+</div>
+<p>A complete list of the on-chain token data and off-chain metadata included in a hypercert can be found in the <a href="https://hypercerts.org/docs/implementation/metadata">documentation</a>. Importantly, for our purposes and designs, there is no included support for verification that the work was completed or efficacious. This will therefore be addressed using another foundation public good, the Ethereum Attestation Service (EAS). However, the hypercerts specification does include a field for a list of contributors. Change Credits takes advantage of this encoding to record contributions of the actual work done, while tracking <em>financial partners</em> through ownership of Change Credits themselves.</p>
 <doc-anchor-target id="ethereum-attestation-service-eas">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#ethereum-attestation-service-eas">#</doc-anchor-trigger>
@@ -190,7 +207,7 @@
 <doc-tabs>
 <doc-tab v-cloak id="erc721">
 <template #title>ERC721</template>
-<p>ERC721 is the most widely adopted token standard for NFTs. The standard is well tested, and enjoys near universal support across wallet implementations.</p>
+<p>ERC721 is the most widely adopted token standard for NFTs. The standard is well-tested, and enjoys near-universal support across wallet implementations.</p>
 </doc-tab>
 <doc-tab v-cloak id="erc1155">
 <template #title>ERC1155</template>
@@ -205,6 +222,49 @@
 <p>Referred to as &quot;token bound accounts&quot; (TBAs), ERC6551 tokens function as a form of smart contract wallet where an account is simultaneously able hold or mint tokens itself and be considered a token (an NFT more specifically) in its own right. Change Code leverages TBAs to serve as <em>treasury accounts</em> for the receipt of funds into projects and the minting of Change Credits.</p>
 </doc-tab>
 </doc-tabs>
+<doc-anchor-target id="network-infrastructure">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#network-infrastructure">#</doc-anchor-trigger>
+        <span>Network Infrastructure</span>
+    </h3>
+</doc-anchor-target>
+<p>To maximize the reach of our work and do our best to always meet changemakers where they are, the Changescape is designed as a cross-chain or multi-chain protocol. Leveraging shared tools and being available to existing communities across different ecosystems is among our most important design considerations.</p>
+<doc-anchor-target id="blockchain">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#blockchain">#</doc-anchor-trigger>
+        <span>Blockchain</span>
+    </h4>
+</doc-anchor-target>
+<doc-anchor-target id="optimism">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#optimism">#</doc-anchor-trigger>
+        <span>Optimism</span>
+    </h5>
+</doc-anchor-target>
+<p>Initial smart contracts for the Changescape are being deployed onto the Optimism L2 mainnet. The Optimism community has demonstrated a deep commitment toward positive impact, both inside of and beyond climate specific initiatives. Moreover, the technology involved in the <a href="https://docs.optimism.io/stack/getting-started">OP Stack</a> is among the most closely aligned with the the Ethereum core and its roadmap prioritizes key pieces of the Ethereum ecosystem that are critical to Change Code, such as <a href="https://docs.attest.org/docs/quick--start/contracts#optimism">EAS</a>.</p>
+<doc-anchor-target id="celo">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#celo">#</doc-anchor-trigger>
+        <span>Celo</span>
+    </h5>
+</doc-anchor-target>
+<p>For years the Celo blockchain stood out as the largest layer 1 blockchain network focused around positive impact. The network is currently undergoing a transition to enter the Optimism orbit as a part of the upcoming Optimism <a href="https://docs.optimism.io/stack/explainer">Superchain</a>. Change Code is closely following the advances of both <a href="https://forum.celo.org/t/clabs-proposes-migrating-celo-to-an-ethereum-l2-leveraging-the-op-stack/7902">Celo</a> and the Superchain to eventually migrate our primary deployments when the time is right.</p>
+<doc-anchor-target id="aztec">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#aztec">#</doc-anchor-trigger>
+        <span>Aztec</span>
+    </h5>
+</doc-anchor-target>
+<p>While not currently emphasized in many circles focused on ReFi (regenerative finance) or public goods, the issue of privacy is something that we view as central to our long term vision and needs. It is often neglected that working for the benefit of all is a privilege and that while it may be safe for those in the <em>West</em> or the <em>Global North</em> to advance climate initiatives, engage in investigative journalism, or attempt to advocate for peace, many are not as fortunate. There are many situations in which climate action can be and is met with threats and physical violence, where educating women or ethnic minorities can make one a target of ideologues, or where it is impossible to mediate for peace without being at risk from extremists on either side of the divide.</p>
+<p>For these reasons and many more, Change Code has a long term interest in the use of zero-knowledge and other privacy preserving technology. We are actively researching to eventually upgrade our protocol to support project deployments where any identifying information about participants can be publicly shielded while still enabling robust verification. <a href="https://docs.aztec.network/">Aztec</a>, together with it&#x27;s smart contract language Noir, presents the ideal route to achieve this vision.</p>
+<doc-anchor-target id="interoperability">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#interoperability">#</doc-anchor-trigger>
+        <span>Interoperability</span>
+    </h4>
+</doc-anchor-target>
+<p>Beyond any choices for which networks may be used to deploy the <em>logic</em> for the Changescape, is the question of where various tokens--IOUs, Change Credits, and Mutual Money--may be accessed. To make Change Credit tokens accessible across chains, while avoiding centralized bridges and potential honeypots which can be drained by attackers, Change Code is integrating <a href="https://layerzero.network/how-it-works">LayerZero</a> for cross-chain token transfers.</p>
+<p>While this list will grow overtime, Change Code is currently prioritizing building connections to make our tokens available on Arbitrum and Solana as both chains have substantial ReFi and public goods communities.</p>
 
                                 
                                 <!-- Required only on API pages -->

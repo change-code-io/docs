@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.771520984609">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.772571311481">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Minting Change Credits</title>
     <meta name="title" content="Minting Change Credits">
-    <meta name="description" content="Because Change Credits are only minted following confirmation of realized, tangible, and verifiable impact, there the process by which these assets...">
+    <meta name="description" content="Because Change Credits are only minted following confirmation of realized, tangible, and verifiable impact, the process by which these assets are...">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.changecode.io/change-credits/cc-minting/">
@@ -20,21 +20,21 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.changecode.io/change-credits/cc-minting/">
     <meta property="og:title" content="Minting Change Credits">
-    <meta property="og:description" content="Because Change Credits are only minted following confirmation of realized, tangible, and verifiable impact, there the process by which these assets...">
+    <meta property="og:description" content="Because Change Credits are only minted following confirmation of realized, tangible, and verifiable impact, the process by which these assets are...">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.changecode.io/change-credits/cc-minting/">
     <meta property="twitter:title" content="Minting Change Credits">
-    <meta property="twitter:description" content="Because Change Credits are only minted following confirmation of realized, tangible, and verifiable impact, there the process by which these assets...">
+    <meta property="twitter:description" content="Because Change Credits are only minted following confirmation of realized, tangible, and verifiable impact, the process by which these assets are...">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.771520984609" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.772571311481" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.771520984609" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.772571311481" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.771520984609" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.772571311481" data-turbo-eval="false" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
 </head>
 <body>
@@ -156,12 +156,12 @@
         <span>Minting Change Credits</span>
     </h1>
 </doc-anchor-target>
-<p>Because Change Credits are only minted following confirmation of realized, tangible, and verifiable impact, there the process by which these assets are created follows a number of steps and involves multiple types of actors.</p>
+<p>Because Change Credits are only minted following confirmation of realized, tangible, and verifiable impact, the process by which these assets are created follows a number of steps and involves multiple types of actors.</p>
 <doc-anchor-target id="participants">
-    <h3>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#participants">#</doc-anchor-trigger>
         <span>Participants</span>
-    </h3>
+    </h2>
 </doc-anchor-target>
 <dl>
 <dt>Good Generator</dt>
@@ -174,47 +174,77 @@
 <dd>Verifiers exist to both validate, measure, and quantify any impact produced. Verifiers are defined by the Good Generator of the project with a focus on local context and relevant expertise. Verification can be conducted by a single individual or organization or the responsibility can be dispersed through a set of Verifiers with a specified quorum required.</dd>
 </dl>
 <doc-anchor-target id="minting-flow">
-    <h3>
+    <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#minting-flow">#</doc-anchor-trigger>
         <span>Minting Flow</span>
-    </h3>
+    </h2>
 </doc-anchor-target>
 <div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">sequenceDiagram
     actor Verifier
     actor Good Generator
     actor Change Code
     Good Generator--&gt;Change Code: propose impact goal for review
+    participant EAS
     create participant hypercert (ERC1155)
     Good Generator-&gt;&gt;hypercert (ERC1155): mint impact goal
     actor Change Code
-    create participant Token Bound Account (ERC6551)
-    Change Code-&gt;&gt;Token Bound Account (ERC6551): deploy treasury account
-    actor partner
+    create participant Treasury Account (ERC6551)
+    Change Code-&gt;&gt;Treasury Account (ERC6551): deploy treasury account
+    actor Partner
     loop
-        partner-&gt;&gt;Token Bound Account (ERC6551): send $
-        Token Bound Account (ERC6551)-&gt;&gt;partner: mint IOUs (ERC20)
-        Token Bound Account (ERC6551)-&gt;&gt;Good Generator: remit funding received
+        Partner-&gt;&gt;Treasury Account (ERC6551): send $
+        Treasury Account (ERC6551)-&gt;&gt;Partner: mint IOUs (ERC20)
+        Treasury Account (ERC6551)-&gt;&gt;Good Generator: remit funding received
     end
+    Good Generator--&gt;Good Generator: implement project
     loop
-        Good Generator--&gt;Good Generator: implement project
-        Good Generator-&gt;&gt;hypercert (ERC1155): submit evidence
-        Verifier--xhypercert (ERC1155): review evidence
-        Change Code--xhypercert (ERC1155): assign token quantity
-        Change Code-&gt;&gt;Token Bound Account (ERC6551): mint Change Credits (ERC721)
+        Good Generator-&gt;&gt;EAS: publish claim attestation
+        Verifier--xEAS: review evidence
+        Verifier-&gt;&gt;EAS: publish verification attestation
+        Change Code-&gt;&gt;Treasury Account (ERC6551): mint Change Credits (ERC721)
     end
     Loop
-        partner-&gt;&gt;Token Bound Account (ERC6551): return IOUs
-        Token Bound Account (ERC6551)-&gt;&gt;partner: receive Change Credits
+        Partner-&gt;&gt;Treasury Account (ERC6551): return IOUs
+        Treasury Account (ERC6551)-&gt;&gt;Partner: receive Change Credits
     end</pre></div>
 <p>The above sequence diagram overviews how Change Credits are created. While the system supports alternative flows to facilitate various forms of financing, we can consider this base form to have x steps.</p>
 <ol>
-<li>The Good Generator submits an impact goal and plan for review by Change Code, as part of their onboarding process. Once approved to mint via the Changescape, the Good Generator mints their hypercert, signalling the beginning for their project.</li>
-<li>After the projects&#x27; hypercert has been deployed, Change Code deploys an associated Token Bound Account (TBA) to act as a treasury for the project to receive funds into and mint tokens from.</li>
+<li>The Good Generator submits an impact goal and plan for review by Change Code, as part of their onboarding process. Once approved to mint via the Changescape, the Good Generator mints their hypercert, signaling the beginning for their project.</li>
+<li>After the projects&#x27; hypercert has been deployed, Change Code deploys an associated Token Bound Account (ERC6511) to act as a treasury for the project to receive funds into and mint tokens from.</li>
 <li>Partners begin contributing funds into the project&#x27;s TBA in exchange for IOUs redeemable for Change Credits once the latter begin to be minted. These funds are then remitted to an account from which the Good Generator can spend to cover the costs of their work. This process can be done in an open-ended asynchronous manner, with funds being contributed to the project through the project&#x27;s lifespan.</li>
-<li>As the Good Generator carries out their work to produce impact, they periodically submit evidence for review. This evidence is stored as records tied to their original hypercert and can be accessed by specified Verifiers.</li>
+<li>As the Good Generator carries out their work to produce impact, they periodically submit evidence for review. This evidence is published via the Ethereum Attestation Service (EAS). These claims are then reviewed and approved or rejected by Verifiers.</li>
 <li>Once evidence is confirmed by Verifiers, Change Code intakes the data provided to assign a quantity of Change Credits to be created and mints them via the project&#x27;s TBA.</li>
 <li>With Change Credits minted and available via the TBA, the project&#x27;s Partners can redeem their IOUs and receive their proportional share of Change Credits.</li>
 </ol>
+<doc-anchor-target id="change-credit-ownership">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#change-credit-ownership">#</doc-anchor-trigger>
+        <span>Change Credit Ownership</span>
+    </h2>
+</doc-anchor-target>
+<p>Beyond forming the economic basis for <a href="../../mutual-money/currency-minting/">Mutual Money</a>, Change Credits create a special relationship between Partners and the Good Generators they back. As can be seen in the <a href="../../data-schemas/change-credits-spec/">schema</a> for Change Credits, contributions to project&#x27;s are represented as NFTs, meaning that each contribution, regardless of size, still creates a single token. The reasoning behind this decision is, at least in part, a statement of values from Change Code that all contributions matter and should be recognized.</p>
+<p>When it comes to the rights conferred to Change Credit holders (Partners), each project&#x27;s Good Generator is required to specify. They can choose to select and calibrate any (or all) of the following.</p>
+<doc-anchor-target id="voting-power">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#voting-power">#</doc-anchor-trigger>
+        <span>Voting Power</span>
+    </h5>
+</doc-anchor-target>
+<p>Good Generators can use Change Credits to include their Partners in decision making processes. These can be small decisions or large decisions, implemented on a one-time or ongoing basis. Additionally, Good Generators can select how to allocate voting power. Each NFT holder can be given a single vote or alternatively the <code v-pre>Balance</code> can be used so that Partners representing larger economic interest are given larger influence.</p>
+<doc-anchor-target id="exclusive-access">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#exclusive-access">#</doc-anchor-trigger>
+        <span>Exclusive Access</span>
+    </h5>
+</doc-anchor-target>
+<p>It is not uncommon for organizations producing positive externalities host events, whether social, cultural, or academic, where attendance is in high demand. Change Credits can be used to grant access to these events.</p>
+<doc-anchor-target id="credit-retirement">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#credit-retirement">#</doc-anchor-trigger>
+        <span>Credit Retirement</span>
+    </h5>
+</doc-anchor-target>
+<p>Certain Good Generators may be social enterprises, capable of producing both profit and positive externalities, or may be engaged in various forms of blended finance. In either case, there will be Good Generators who may be both capable of and interested in offering an economic incentive to further entice Partners to support their positive work. One means to realize this alignment is through Change Credit <a href="../cc-retirement/">retirement</a>.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -234,10 +264,10 @@
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../data-schemas/hypercerts/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../change-credits/verification/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Hypercerts</span>
+                                                <span class="block mt-1">Impact Verification</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>

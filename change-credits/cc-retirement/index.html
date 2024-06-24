@@ -9,24 +9,24 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>IOUs</title>
-    <meta name="title" content="IOUs">
-    <meta name="description" content="IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs...">
+    <title>Change Credit Retirement</title>
+    <meta name="title" content="Change Credit Retirement">
+    <meta name="description" content="When a Good Generator is able concurrently generate positive impact and traditional revenue, an opportunity emerges to further align interests...">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.changecode.io/data-schemas/ious/">
+    <link rel="canonical" href="https://docs.changecode.io/change-credits/cc-retirement/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.changecode.io/data-schemas/ious/">
-    <meta property="og:title" content="IOUs">
-    <meta property="og:description" content="IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs...">
+    <meta property="og:url" content="https://docs.changecode.io/change-credits/cc-retirement/">
+    <meta property="og:title" content="Change Credit Retirement">
+    <meta property="og:description" content="When a Good Generator is able concurrently generate positive impact and traditional revenue, an opportunity emerges to further align interests...">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.changecode.io/data-schemas/ious/">
-    <meta property="twitter:title" content="IOUs">
-    <meta property="twitter:description" content="IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs...">
+    <meta property="twitter:url" content="https://docs.changecode.io/change-credits/cc-retirement/">
+    <meta property="twitter:title" content="Change Credit Retirement">
+    <meta property="twitter:description" content="When a Good Generator is able concurrently generate positive impact and traditional revenue, an opportunity emerges to further align interests...">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -35,6 +35,7 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.772571311481" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.772571311481" data-turbo-eval="false" defer></script>
+    <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -149,25 +150,36 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="ious" class="break-words">
+<doc-anchor-target id="change-credit-retirement" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#ious">#</doc-anchor-trigger>
-        <span>IOUs</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#change-credit-retirement">#</doc-anchor-trigger>
+        <span>Change Credit Retirement</span>
     </h1>
 </doc-anchor-target>
-<p>IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs before they are redeemed for Change Credits.</p>
-<p>IOUs are minted according the the below specification:</p>
-<dl>
-<dt><code v-pre>Token Name</code> | CC IOU | {Good Generator} {Index}</dt>
-<dd>The token name assigned to each batch of IOUs always begins with &quot;CC IOU&quot;. This is then followed by the name of the Good Generator and an index. The purpose of the index is to differentiate between different projects from one Good Generator.</dd>
-<dt><code v-pre>Token Symbol</code> | CC-IOU-{ProjectID}</dt>
-<dd>The abbreviated token symbol begins &quot;CC-IOU&quot; and is followed by a project ID, where the project ID is composed of the unique ID assigned to the project&#x27;s Good Generator followed by the project&#x27;s index value.</dd>
-<dt><code v-pre>Total Supply</code></dt>
-<dd>The supply of a project&#x27;s IOUs will vary over its lifecycle. Initially, a target number of tokens as specified in the project&#x27;s hypercert will be minted and held in the project&#x27;s token bound account. As IOUs are redeemed for Change Credits, the IOUs returned to the TBA are subsequently burned.</dd>
-<dt><code v-pre>Supply Cap</code></dt>
-<dd>IOUs are implemented including the <code v-pre>ERC20Capped</code> extension. As such, the Good Generator can specify that the supply of all IOUs is capped at the initial supply set in their target.</dd>
-</dl>
-<p>For more information regarding the ERC20 token standard, we refer you to documentation maintained by OpenZeppelin <a href="https://docs.openzeppelin.com/contracts/5.x/api/token/erc20">here</a>.</p>
+<p>When a Good Generator is able concurrently generate positive impact and traditional revenue, an opportunity emerges to further align interests between themselves and their Partners. These social enterprises may leverage Change Credits to jump start their work in producing green energy, developing affordable housing, lowering the cost of healthcare or education, or achieving almost any other means of positive change that can also produce revenue.</p>
+<p>A more traditional model for these social enterprises would be to offer equity or debt from their organizations where the positive impact is seen and structured as merely an ancillary benefit. The shortcoming in such a model is that there is no economic value ascribed to the impact externality itself, but the cost is still present. Imagine a company that made tables and chairs but could only sell its tables, while being expected to produce and distribute its chairs without payment. Would this company be able to effectively compete for capital against a business that produced and sold only tables without the deadweight of chair production.</p>
+<p>The Changescape is different. Inside the Changescape, positive externalities are seen as economic goods unto themselves. In support of this paradigm shift, instead of selling equity or debt with <em>blended returns</em>, social enterprises can instead commit funds to repurchase and retire their Change Credits.</p>
+<doc-anchor-target id="retirement-flow">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#retirement-flow">#</doc-anchor-trigger>
+        <span>Retirement Flow</span>
+    </h2>
+</doc-anchor-target>
+<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">sequenceDiagram
+    actor Good Generator
+    participant Treasury Account
+    actor Partner
+    Good Generator-&gt;&gt;Treasury Account: fund for retirement
+    Partner--&gt;Treasury Account: signal interest in retirement
+    Treasury Account-&gt;&gt;Partner: distribute funds and update Change Credit</pre></div>
+<p>The above sequence diagram offers an overview of the steps of Change Credit retirement, which is described in greater detail across 6 steps.</p>
+<ol>
+<li>Before any of the above interactions take place, the Good Generator may optionally specify a target or even guaranteed amount of funds that will be used to repurchase and retire its Change Credits. This target can be published as part of deploying the project inside the Changescape or may simply be disseminated through the organizations usual channels communication.</li>
+<li>Once funds are available (and after Change Credits have already begun to be distributed), the Good Generator would remit funds into the project&#x27;s Treasury Account.</li>
+<li>With funds available in the account, the Good Generator must specify how retirement will occur--declaring the price they are willing to pay for each Change Credit received and optionally setting a maximum fraction of each Change Credit that may be retired.</li>
+<li>Partners holding Change Credits may now signal themselves as interested in retirement, optionally setting their own maximum retirement portion.</li>
+<li>As Partners signal interest in retirement, the Treasury Account automatically distributes funds and updates the <code v-pre>Balance</code> and <code v-pre>Retirement</code> values of participating Change Credits accordingly.</li>
+</ol>
 
                                 
                                 <!-- Required only on API pages -->
@@ -177,20 +189,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../data-schemas/hypercerts/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../change-credits/verification/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Hypercerts</span>
+                                                <span class="block mt-1">Impact Verification</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../data-schemas/attestations/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../mutual-money/currency-minting/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Attestation Schemas</span>
+                                                <span class="block mt-1">Currency Minting</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -234,6 +246,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "IOUs", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Change Credit Retirement", level: 2, icon: "file", hasPrism: false, hasMermaid: true, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

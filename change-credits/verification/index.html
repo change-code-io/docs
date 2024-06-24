@@ -9,24 +9,24 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>IOUs</title>
-    <meta name="title" content="IOUs">
-    <meta name="description" content="IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs...">
+    <title>Impact Verification</title>
+    <meta name="title" content="Impact Verification">
+    <meta name="description" content="The Changescape is designed as an impact maximizing protocol, meaning that every design decision is intended to drive capital and interest toward...">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.changecode.io/data-schemas/ious/">
+    <link rel="canonical" href="https://docs.changecode.io/change-credits/verification/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.changecode.io/data-schemas/ious/">
-    <meta property="og:title" content="IOUs">
-    <meta property="og:description" content="IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs...">
+    <meta property="og:url" content="https://docs.changecode.io/change-credits/verification/">
+    <meta property="og:title" content="Impact Verification">
+    <meta property="og:description" content="The Changescape is designed as an impact maximizing protocol, meaning that every design decision is intended to drive capital and interest toward...">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.changecode.io/data-schemas/ious/">
-    <meta property="twitter:title" content="IOUs">
-    <meta property="twitter:description" content="IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs...">
+    <meta property="twitter:url" content="https://docs.changecode.io/change-credits/verification/">
+    <meta property="twitter:title" content="Impact Verification">
+    <meta property="twitter:description" content="The Changescape is designed as an impact maximizing protocol, meaning that every design decision is intended to drive capital and interest toward...">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -35,6 +35,7 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.772571311481" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.772571311481" data-turbo-eval="false" defer></script>
+    <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -149,25 +150,51 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="ious" class="break-words">
+<doc-anchor-target id="impact-verification" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#ious">#</doc-anchor-trigger>
-        <span>IOUs</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#impact-verification">#</doc-anchor-trigger>
+        <span>Impact Verification</span>
     </h1>
 </doc-anchor-target>
-<p>IOUs are implemented as ERC20 (fungible) tokens, to maximize both compatibility with existing tools and to streamline the transferability of IOUs before they are redeemed for Change Credits.</p>
-<p>IOUs are minted according the the below specification:</p>
-<dl>
-<dt><code v-pre>Token Name</code> | CC IOU | {Good Generator} {Index}</dt>
-<dd>The token name assigned to each batch of IOUs always begins with &quot;CC IOU&quot;. This is then followed by the name of the Good Generator and an index. The purpose of the index is to differentiate between different projects from one Good Generator.</dd>
-<dt><code v-pre>Token Symbol</code> | CC-IOU-{ProjectID}</dt>
-<dd>The abbreviated token symbol begins &quot;CC-IOU&quot; and is followed by a project ID, where the project ID is composed of the unique ID assigned to the project&#x27;s Good Generator followed by the project&#x27;s index value.</dd>
-<dt><code v-pre>Total Supply</code></dt>
-<dd>The supply of a project&#x27;s IOUs will vary over its lifecycle. Initially, a target number of tokens as specified in the project&#x27;s hypercert will be minted and held in the project&#x27;s token bound account. As IOUs are redeemed for Change Credits, the IOUs returned to the TBA are subsequently burned.</dd>
-<dt><code v-pre>Supply Cap</code></dt>
-<dd>IOUs are implemented including the <code v-pre>ERC20Capped</code> extension. As such, the Good Generator can specify that the supply of all IOUs is capped at the initial supply set in their target.</dd>
-</dl>
-<p>For more information regarding the ERC20 token standard, we refer you to documentation maintained by OpenZeppelin <a href="https://docs.openzeppelin.com/contracts/5.x/api/token/erc20">here</a>.</p>
+<p>The Changescape is designed as an <em>impact maximizing</em> protocol, meaning that every design decision is intended to drive capital and interest toward projects producing positive externalities most efficiently and effectively. Instead of focusing on social validation or popularity, the Changescape centers the concept of verification in the protocol so that primary impact representation in the system, Change Credits, are only ever minted from verified impact, rather than from mere claims of impact.</p>
+<doc-anchor-target id="ethereum-attestation-service">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ethereum-attestation-service">#</doc-anchor-trigger>
+        <span>Ethereum Attestation Service</span>
+    </h2>
+</doc-anchor-target>
+<p>In order to accomplish this verification and ensure maximum interoperability with the broader space, Change Code leverages the Ethereum Attestation Service (EAS).</p>
+<p>EAS relies on <code v-pre>schemas</code> to structure the data provided as <code v-pre>attestations</code> that can be viewed either publicly or with specified permissions. As can be seen <a href="../../data-schemas/attestations/">here</a>, Change Code has two separate schemas defined. The first schema, the claim schema, is used by Good Generators to publish their claim attestations, the evidence they provide to substantiate their work and the impact produced. The second schema is used by Verifiers, after having reviewed the claims attestations, to denote either their acceptance or rejection of the claims made and to provide their quantification of the amount of impact produced.</p>
+<doc-anchor-target id="verification-flow">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#verification-flow">#</doc-anchor-trigger>
+        <span>Verification Flow</span>
+    </h2>
+</doc-anchor-target>
+<div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">sequenceDiagram
+    actor Verifier
+    actor Good Generator
+    actor Change Code
+    participant EAS
+    participant Treasury Account
+    Good Generator--&gt;Good Generator: implement project
+    loop
+        Good Generator-&gt;&gt;EAS: publish claim attestation
+        Verifier--xEAS: review evidence
+        Verifier-&gt;&gt;EAS: publish verification attestation
+        Change Code-&gt;&gt;Treasury Account: mint Change Credits (ERC721)
+    end</pre></div>
+<p>As shown in the above sequence diagram, the process of verification can (and often will) be carried out as a loop. As a project is implemented over a period of weeks, months, or even years, the Good Generator may periodically submit claim attestations on recent accomplishments and evidence. As soon as these claims are available (or at some pre-arranged cadence), Verifiers may review this data and submit their own attestations. Finally, with these review attestations published, Change Code programmatically mints Change Credits in accordance with the impact quantity specified by the Verifiers.</p>
+<p>By allowing for interim data reporting, the protocol enables Verifiers to have access to data in a more timely manner, which in practice enables more robust dispute or follow up. Additionally, with this setup, Change Credits are available to Partners sooner than if all reporting were unnecessarily forced to only occur at the end of a project&#x27;s timeline.</p>
+<doc-anchor-target id="verifiers">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#verifiers">#</doc-anchor-trigger>
+        <span>Verifiers</span>
+    </h2>
+</doc-anchor-target>
+<p>Verifiers are experts impact measurement and evaluation selected to review data provided by Good Generators and assess the veracity and quantity of impact generated. When a project is instantiated, Verifers are specified along with an approval quorum. For example, a project may have listed 3 potential verifiers with any 2 being required to approve the project&#x27;s claims for Change Credits to be issue.</p>
+<p>When it comes to the quantity of Change Credits to be issued, this number is obtained by a simple average of the all quantities reported by each approving Verifier.</p>
+<p>In the initial iteration of the Changescape, Verifiers are proposed by a project&#x27;s Good Generator and approved by Change Code based on their expertise while confirming they are free from any conflicts of interest. In future versions of the protocol, this process is set to be upgraded to have Verifiers organized as a collective (or DAO) with the ability to control its own membership.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -177,20 +204,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../data-schemas/hypercerts/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../change-credits/cc-minting/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Hypercerts</span>
+                                                <span class="block mt-1">Minting Change Credits</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../data-schemas/attestations/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../change-credits/cc-retirement/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Attestation Schemas</span>
+                                                <span class="block mt-1">Change Credit Retirement</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -234,6 +261,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "IOUs", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Impact Verification", level: 2, icon: "file", hasPrism: false, hasMermaid: true, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
