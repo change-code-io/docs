@@ -9,24 +9,24 @@
     <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
-    <title>Change Credits</title>
-    <meta name="title" content="Change Credits">
-    <meta name="description" content="Change Credits are non-fungible (NFT) tokens implemented according to the ERC721 standard, the most commonly used NFT standard in web3.">
+    <title>Monetary Primer</title>
+    <meta name="title" content="Monetary Primer">
+    <meta name="description" content="The idea of dollar voting or \"voting with your wallet\" has been a recognized phenomenon for about the past 50 or 75 years.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.changecode.io/data-schemas/change-credits-spec/">
+    <link rel="canonical" href="https://docs.changecode.io/mutual-money/monetary-primer/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.changecode.io/data-schemas/change-credits-spec/">
-    <meta property="og:title" content="Change Credits">
-    <meta property="og:description" content="Change Credits are non-fungible (NFT) tokens implemented according to the ERC721 standard, the most commonly used NFT standard in web3.">
+    <meta property="og:url" content="https://docs.changecode.io/mutual-money/monetary-primer/">
+    <meta property="og:title" content="Monetary Primer">
+    <meta property="og:description" content="The idea of dollar voting or \"voting with your wallet\" has been a recognized phenomenon for about the past 50 or 75 years.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.changecode.io/data-schemas/change-credits-spec/">
-    <meta property="twitter:title" content="Change Credits">
-    <meta property="twitter:description" content="Change Credits are non-fungible (NFT) tokens implemented according to the ERC721 standard, the most commonly used NFT standard in web3.">
+    <meta property="twitter:url" content="https://docs.changecode.io/mutual-money/monetary-primer/">
+    <meta property="twitter:title" content="Monetary Primer">
+    <meta property="twitter:description" content="The idea of dollar voting or \"voting with your wallet\" has been a recognized phenomenon for about the past 50 or 75 years.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -35,7 +35,6 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.773264645096" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.773264645096" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.5.0.773264645096" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -150,57 +149,60 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="change-credits" class="break-words">
+<doc-anchor-target id="monetary-primer" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#change-credits">#</doc-anchor-trigger>
-        <span>Change Credits</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#monetary-primer">#</doc-anchor-trigger>
+        <span>Monetary Primer</span>
     </h1>
 </doc-anchor-target>
-<p>Change Credits are non-fungible (NFT) tokens implemented according to the ERC721 standard, the most commonly used NFT standard in web3. The motivation to use non-fungible tokens, used most commonly as digital collectibles or as tools to control membership access, is two fold.</p>
-<p>First, Good Generators may elect to confer invitations to events or provide partner only forms of communication or community. These uses of &quot;token gating&quot; are well solved by NFTs as they provide clearest binary between partners (those who hold a project&#x27;s NFT) and others. The second consideration for constructing Change Credits as NFTs is admittedly more abstract. While there is no ignoring the fact that larger contributions to projects can have a larger impact, it is important to emphasize and embrace the idea that simply partnering for impact in the first place and at any level of contribution is the most important step one can take.</p>
-<p>Change Credits are implemented as follows:</p>
-<dl>
-<dt><code v-pre>Name</code> | CC | {Good Generator} {Index}</dt>
-<dd>The token name assigned to each set of Change Credits always begins with &quot;CC&quot;. This is then followed by the name of the Good Generator and an index. The purpose of the index is to differentiate between different projects from one Good Generator.</dd>
-<dt><code v-pre>Symbol</code> | CC-{ProjectID}</dt>
-<dd>The abbreviated token symbol begins &quot;CC-IOU&quot; and is followed by a project ID, where the project ID is composed of the unique ID assigned to the project&#x27;s Good Generator followed by the project&#x27;s index value.</dd>
-<dt><code v-pre>tokenURI</code></dt>
-<dd>The <code v-pre>tokenURI</code> sets the IPFS link to the metadata (defined below) with further details of the NFT. The Change Credit implementation includes the <a href="https://docs.openzeppelin.com/contracts/5.x/api/token/erc721#ERC721URIStorage"><code v-pre>ERC721URIStorage</code></a> extension so that each instance of token in the set can have its own unique metadata.</dd>
-<dt><code v-pre>minContribution</code></dt>
-<dd>The <code v-pre>minContribution</code> specifies the smallest monetary contribution that can be made to a project to mint a Change Credit. This variable sets a minimum only on price and is not intended to be a mechanic for any further price action.</dd>
-<dt><code v-pre>Metadata</code></dt>
-<dd>
-<p>Included here is the json schema for the metadata stored at the NFT&#x27;s <code v-pre>tokenURI</code>. The first 4 properties are included to comply with the metadata structure set by NFT marketplaces and viewers such as <a href="https://docs.opensea.io/docs/metadata-standards">OpenSea</a>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-json"><code v-pre class="language-json">{
-&quot;description&quot;: &quot;{A description, not exceeding 200 characters, of the work accomplished by the project}&quot;, 
-&quot;external_url&quot;: &quot;{Unique Changescape URL}&quot;, 
-&quot;image&quot;: &quot;{link to Hypercert Image URL}&quot;, 
-&quot;name&quot;: &quot;CC | {Good Generator} {Index} {Serial #}&quot;,
-&quot;attributes&quot;: [
-{
-    &quot;display_type&quot;: &quot;number&quot;,
-    &quot;trait_type&quot;: &quot;Contribution&quot;,
-    &quot;value&quot;: &quot;{Total value of the contribution behind the Change Credit}&quot;
-},
-{
-    &quot;display_type&quot;: &quot;number&quot;,
-    &quot;trait_type&quot;: &quot;Retirement&quot;,
-    &quot;value&quot;: &quot;{Portion of the Change Credit that has already been retired by the Good Generator}&quot;
-},
-{
-    &quot;display_type&quot;: &quot;number&quot;,
-    &quot;trait_type&quot;: &quot;Redemption&quot;,
-    &quot;value&quot;: &quot;{Portion of the Change Credit that has already been redeemed by the holder}&quot;
-},
-{
-    &quot;display_type&quot;: &quot;number&quot;,
-    &quot;trait_type&quot;: &quot;Balance&quot;,
-    &quot;value&quot;: &quot;{Remaining balance after subtracting Retirement and Redemption}&quot;}]
-}</code></pre>
-</doc-codeblock></div>
-</dd>
-</dl>
+<p>The idea of <em>dollar voting</em> or &quot;voting with your wallet&quot; has been a recognized phenomenon for about the past 50 or 75 years. The notion has a great deal of intuitive appeal as well. We work hard for our money, so why wouldn&#x27;t we want what we spend our money on to align with our values and how we see ourselves?</p>
+<p>One could even argue that the community currency movement, those attempts to create currencies specific to local communities, is a philosophical cousin to the idea of dollar voting. Both spring from the idea that money isn&#x27;t currently but can be aligned with our own values and goals.</p>
+<p>Unfortunately, it is not difficult to find major shortcomings in both movements, which we&#x27;ll jointly refer to as value-based monetary movements. Dollar voting struggles in the face of gross information asymmetry between consumers and producers--greenwashing, pinkwashing, etc. Additionally, nearly all demonstrable benefits from community currency can only be found in those select situations where communities suffer from major swings in seasonal liquidity, as in the case of smallholder farming communities that only have 1 or 2 harvests a year (<a href="https://www.mdpi.com/1911-8074/13/11/271">Zeller, 2020</a>).</p>
+<doc-anchor-target id="principles-of-sound-money">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#principles-of-sound-money">#</doc-anchor-trigger>
+        <span>Principles of Sound Money</span>
+    </h2>
+</doc-anchor-target>
+<p>Conventional wisdom states that there are 3 necessary functions that an asset must perform to be considered good or effective money.</p>
+<p><strong>Medium of exchange.</strong> The money can be used easily and effectively to realize the exchange of goods and services. Tangibly, for a money to be an effective medium of exchange, a participant must be able to physically or digitally bring the money to a place of commerce (like a store) and have the confidence to reasonably expect that their money will be accepted in exchange for what they wish to purchase.</p>
+<p><strong>Unit of account.</strong> The function of being a unit of account is arguably related to that of being a medium of exchange. Money used as a unit of account provides common units that can be assigned to the price of different goods and services for the purposes of comparison and evaluation. If a participant is told that Store A has the item they want for 50 #s and Store B is selling it for 46 #s, then #s are a good money only if they can rely upon those two statements to know that Store B is offering the better deal.</p>
+<p><strong>Store of value.</strong> The most discussed (and most challenging) role for a money is that as a store of value. A good form of money will be able to purchase a constant or near constant basic of goods even over time. The strong form of this requirement is arguably impossible, as baskets of goods and the real cost involved in production change over time, or even not advisable, if one is especially concerned about <a href="https://www.imf.org/en/Publications/fandd/issues/2022/03/Future-of-inflation-partII-Agarwal-kimball">sticky wages</a>. However, what we&#x27;ll call the weak form of the requirement, that good money lose its value slowly (&lt;3% a year) and predictably is broadly agreed upon by economists and (ordinarily) achieved by the world&#x27;s major central banks.</p>
+<p>Beyond these 3 broadly agreed to functions of money, we believe that money ideally has two additional functions that closely relate to both the successes and failures of value-based monetary movements.</p>
+<doc-anchor-target id="economic-counterweight">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#economic-counterweight">#</doc-anchor-trigger>
+        <span>Economic Counterweight</span>
+    </h3>
+</doc-anchor-target>
+<p>The key feature of economic thought and monetary decision making over the past 75 years is the notion that good money is countercyclical, playing the role of an economic counterweight to prevailing conditions. When an economy is struggling, making money cheaper or easier to obtain, can help boost growth. Conversely, if it looks as though an economy may be ballooning at an unsustainable pace that&#x27;s likely to pop, then money can be made more expensive and scarcer.</p>
+<p>In with fiat money, this function is carried out primarily through the adjustment of interest rates. In the case of community currencies in agricultural areas of the Global South, the increased access to funds during outside of the harvest windfall also acts as a counterweight, providing easier access to money exactly when it is needed to prevent activity from seizing up due to a shortage of liquidity. Because the issue of seasonally restricted liquidity is largely unique to these communities, community currencies (backed by development aid) play a unique countercyclical role that is not present in the experiments carried out in the Global North.</p>
+<doc-anchor-target id="collective-subsidy">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#collective-subsidy">#</doc-anchor-trigger>
+        <span>Collective Subsidy</span>
+    </h3>
+</doc-anchor-target>
+<p>As conventional monetary policy transitioned from gold to fiat, and the idea of countercyclical currency rose, the concept of seigniorage has become thought of as a artifact. Seigniorage is defined as the difference between the cost of producing a currency and the value for which it can be sold or distributed. A archetypal example of seigniorage emerges when a government issuing gold or silver currency begins mixing in less precious metals but keeps the face value of the coins constant. The cost of producing the currency has been reduced, the value brought in remains the same (at least initially), so seigniorage increases.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>While seigniorage in fiat currencies is less obvious or direct, the same result is achieved because the central bank acts as a <em>sink</em> for government debt. Since fiat currency is backed, by government debt, there is more demand (at a lower cost) for the government&#x27;s debt than would exist otherwise, resulting in a reduced cost of capital for the state.</p>
+        </div>
+    </div>
+</div>
+<p>Provided the function is not used to excess, the creation of seigniorage is an important role for good money as it can provide a key means for a state to finance its operations. This role can be especially powerful for newer or emerging states that may have more tenuous tax base. If we think beyond the nation state, we can see seigniorage as a means for communities, movements, or network states to bootstrap capital for themselves or in the furtherance of common values.</p>
+<p>It is this final prong of good money, the constructive direction of seigniorage that is a far more powerful tool toward a value-based monetary system.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -210,20 +212,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../data-schemas/attestations/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../change-credits/cc-retirement/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Attestation Schemas</span>
+                                                <span class="block mt-1">Change Credit Retirement</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../contributing/community-conduct/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../mutual-money/currency-minting/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Community Code of Conduct</span>
+                                                <span class="block mt-1">Currency Minting</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -267,6 +269,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Change Credits", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Monetary Primer", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
