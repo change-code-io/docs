@@ -7,6 +7,6 @@ Welcome to the Change Code Knowledgebase. At Change Code we're building the tool
 
 At the core of Change Code's work is our belief that in order to actually achieve the world's sustainability and other impact goals, we must find a way to *make purpose profitable*. We are working to pioneer new financial primitives and tokenomics that will see impact itself emerge as the next asset class to be powered by web3.
 
-The *Changescape* is a multi-chain and multi-token dApp (decentralized application) engineered to support the tokenization, verification, and ultimate monetization of a new asset category, positive impact.
+The __Changescape__ is a multi-chain and multi-token dApp (decentralized application) engineered to support the tokenization, verification, and ultimate monetization of a new asset category, positive impact.
 
 If you're interested in contributing to our work, navigate over to the [Contributor Guide](./contributing/contribution-guide/).

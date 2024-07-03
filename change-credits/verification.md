@@ -17,7 +17,7 @@ EAS relies on `schemas` to structure the data provided as `attestations` that ca
 sequenceDiagram
     actor Verifier
     actor Good Generator
-    actor Change Code
+    participant Changescape
     participant EAS
     participant Treasury Account
     Good Generator-->Good Generator: implement project
@@ -25,11 +25,11 @@ sequenceDiagram
         Good Generator->>EAS: publish claim attestation
         Verifier--xEAS: review evidence
         Verifier->>EAS: publish verification attestation
-        Change Code->>Treasury Account: mint Change Credits (ERC721)
+        Changescape->>Treasury Account: mint Change Credits (ERC721)
     end
 ```
 
-As shown in the above sequence diagram, the process of verification can (and often will) be carried out as a loop. As a project is implemented over a period of weeks, months, or even years, the Good Generator may periodically submit claim attestations on recent accomplishments and evidence. As soon as these claims are available (or at some pre-arranged cadence), Verifiers may review this data and submit their own attestations. Finally, with these review attestations published, Change Code programmatically mints Change Credits in accordance with the impact quantity specified by the Verifiers.
+As shown in the above sequence diagram, the process of verification can (and often will) be carried out as a loop. As a project is implemented over a period of weeks, months, or even years, the Good Generator may periodically submit claim attestations on recent accomplishments and evidence. As soon as these claims are available (or at some pre-arranged cadence), Verifiers may review this data and submit their own attestations. Finally, with these review attestations published, the Changescape programmatically mints Change Credits in accordance with the impact quantity specified by the Verifiers.
 
 By allowing for interim data reporting, the protocol enables Verifiers to have access to data in a more timely manner, which in practice enables more robust dispute or follow up. Additionally, with this setup, Change Credits are available to Partners sooner than if all reporting were unnecessarily forced to only occur at the end of a project's timeline.
 
