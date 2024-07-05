@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.773264645096">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.773503670486">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.773264645096" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.773503670486" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.773264645096" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.773503670486" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.773264645096" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.773503670486" data-turbo-eval="false" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
 </head>
 <body>
@@ -174,7 +174,7 @@
 <div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">sequenceDiagram
     actor Verifier
     actor Good Generator
-    actor Change Code
+    participant Changescape
     participant EAS
     participant Treasury Account
     Good Generator--&gt;Good Generator: implement project
@@ -182,9 +182,9 @@
         Good Generator-&gt;&gt;EAS: publish claim attestation
         Verifier--xEAS: review evidence
         Verifier-&gt;&gt;EAS: publish verification attestation
-        Change Code-&gt;&gt;Treasury Account: mint Change Credits (ERC721)
+        Changescape-&gt;&gt;Treasury Account: mint Change Credits (ERC721)
     end</pre></div>
-<p>As shown in the above sequence diagram, the process of verification can (and often will) be carried out as a loop. As a project is implemented over a period of weeks, months, or even years, the Good Generator may periodically submit claim attestations on recent accomplishments and evidence. As soon as these claims are available (or at some pre-arranged cadence), Verifiers may review this data and submit their own attestations. Finally, with these review attestations published, Change Code programmatically mints Change Credits in accordance with the impact quantity specified by the Verifiers.</p>
+<p>As shown in the above sequence diagram, the process of verification can (and often will) be carried out as a loop. As a project is implemented over a period of weeks, months, or even years, the Good Generator may periodically submit claim attestations on recent accomplishments and evidence. As soon as these claims are available (or at some pre-arranged cadence), Verifiers may review this data and submit their own attestations. Finally, with these review attestations published, the Changescape programmatically mints Change Credits in accordance with the impact quantity specified by the Verifiers.</p>
 <p>By allowing for interim data reporting, the protocol enables Verifiers to have access to data in a more timely manner, which in practice enables more robust dispute or follow up. Additionally, with this setup, Change Credits are available to Partners sooner than if all reporting were unnecessarily forced to only occur at the end of a project&#x27;s timeline.</p>
 <doc-anchor-target id="verifiers">
     <h2>

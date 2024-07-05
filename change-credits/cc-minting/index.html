@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.773264645096">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.773503670486">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.773264645096" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.773503670486" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.773264645096" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.773503670486" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.773264645096" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.773503670486" data-turbo-eval="false" defer></script>
     <script id="mermaid-js" data-cfasync="false" src="../../resources/js/mermaid.js?v=3.5.0" defer></script>
 </head>
 <body>
@@ -166,8 +166,8 @@
 <dl>
 <dt>Good Generator</dt>
 <dd>A Good Generator is the implementing organization responsible for seeing the planned impact results achieved. It is through the actions of this entity, often an NGO or social enterprise, that positive externalities are produced. Because contributions and funds can be seamlessly fractionalized and divided, a Good Generator can also be a collection of multiple contributors working collaboratively.</dd>
-<dt>Change Code</dt>
-<dd>Change Code acts to provide all necessary infrastructure for the creation and management of Change Credits through its <em>Changescape</em>. While Change Code is not involved in the measurement or verification of any results produced, it is responsible for assessing the legitimacy and compliance of any organizations seeking to mint Change Credits.</dd>
+<dt>Changescape</dt>
+<dd>Change Code acts to provide all necessary infrastructure for the creation and management of Change Credits through its <em>Changescape</em>. While the Changescape does not itself measure or verify of any results produced, Change Code as the administrator of the Changescape is responsible for assessing the legitimacy and compliance of any organizations seeking to mint Change Credits.</dd>
 <dt>Partner</dt>
 <dd>Partners financially contribute to the positive externalities embodied in Change Credits. They fund the delivery of impact by pre-purchasing Change Credits in advance.</dd>
 <dt>Verifier</dt>
@@ -182,14 +182,13 @@
 <div class="overflow-hidden mb-6 py-4 dark:px-5 dark:bg-white rounded-md"><pre class="mermaid w-full">sequenceDiagram
     actor Verifier
     actor Good Generator
-    actor Change Code
-    Good Generator--&gt;Change Code: propose impact goal for review
+    participant Changescape
+    Good Generator--&gt;Changescape: propose impact goal for review
     participant EAS
     create participant hypercert (ERC1155)
     Good Generator-&gt;&gt;hypercert (ERC1155): mint impact goal
-    actor Change Code
     create participant Treasury Account (ERC6551)
-    Change Code-&gt;&gt;Treasury Account (ERC6551): deploy treasury account
+    Changescape-&gt;&gt;Treasury Account (ERC6551): deploy treasury account
     actor Partner
     loop
         Partner-&gt;&gt;Treasury Account (ERC6551): send $
@@ -201,7 +200,7 @@
         Good Generator-&gt;&gt;EAS: publish claim attestation
         Verifier--xEAS: review evidence
         Verifier-&gt;&gt;EAS: publish verification attestation
-        Change Code-&gt;&gt;Treasury Account (ERC6551): mint Change Credits (ERC721)
+        Changescape-&gt;&gt;Treasury Account (ERC6551): mint Change Credits (ERC721)
     end
     Loop
         Partner-&gt;&gt;Treasury Account (ERC6551): return IOUs
@@ -209,11 +208,11 @@
     end</pre></div>
 <p>The above sequence diagram overviews how Change Credits are created. While the system supports alternative flows to facilitate various forms of financing, we can consider this base form to have x steps.</p>
 <ol>
-<li>The Good Generator submits an impact goal and plan for review by Change Code, as part of their onboarding process. Once approved to mint via the Changescape, the Good Generator mints their hypercert, signaling the beginning for their project.</li>
+<li>The Good Generator submits an impact goal and plan for review, as part of their onboarding process. Once approved to mint via the Changescape, the Good Generator mints their hypercert, signaling the beginning for their project.</li>
 <li>After the projects&#x27; hypercert has been deployed, Change Code deploys an associated Token Bound Account (ERC6511) to act as a treasury for the project to receive funds into and mint tokens from.</li>
 <li>Partners begin contributing funds into the project&#x27;s TBA in exchange for IOUs redeemable for Change Credits once the latter begin to be minted. These funds are then remitted to an account from which the Good Generator can spend to cover the costs of their work. This process can be done in an open-ended asynchronous manner, with funds being contributed to the project through the project&#x27;s lifespan.</li>
 <li>As the Good Generator carries out their work to produce impact, they periodically submit evidence for review. This evidence is published via the Ethereum Attestation Service (EAS). These claims are then reviewed and approved or rejected by Verifiers.</li>
-<li>Once evidence is confirmed by Verifiers, Change Code intakes the data provided to assign a quantity of Change Credits to be created and mints them via the project&#x27;s TBA.</li>
+<li>Once evidence is confirmed by Verifiers, the Changescape intakes the data provided to assign a quantity of Change Credits to be created and mints them via the project&#x27;s TBA.</li>
 <li>With Change Credits minted and available via the TBA, the project&#x27;s Partners can redeem their IOUs and receive their proportional share of Change Credits.</li>
 </ol>
 <doc-anchor-target id="change-credit-ownership">
