@@ -3,26 +3,26 @@ label: Hypercerts
 order: -1
 ---
 
-Change Code leverages the Hypercerts protocol, itself developed from the ERC1155 token standard for semi-fungible tokens. While adhering to the requirements of the standard, Change Code modifies *how* some of the schema fields are used, adapting them to our theory of change and implementation needs.
+Change Code leverages the Hypercerts protocol developed from the ERC1155 token standard for semi-fungible tokens. While adhering to the requirements of the standard, Change Code modifies *how* some of the schema fields are used, adapting them to our theory of change and implementation needs.
 
 ## ERC1155 Fields
 
 `Name` | CC Hypercert | \{Good Generator\} \{Index\}
-:   The Hypercert name mirrors the name used for a project's IOUs. The concept of an index is again used to support single organizations working across multiple initiatives.   
+:   The Hypercert name mirrors the name used for a project's IOUs. The concept of an index is again used to support single organizations implementing multiple, distinct impact initiatives.   
 
 `Description`
 :   A description, not exceeding 200 characters, of the work to be done by the project.
 
 `Image`
-:   While the image field is required by the Hypercerts standard, we do not believe a single immutable image to be valuable for the purposes of serious impact validation. To satisfy this requirement, the Changescape backend will automatically generate and provide an image to satisfy the requirement.
+:   While the image field is required by the Hypercerts standard, we do not believe a single immutable image to be valuable for the purposes of veracious impact validation. To satisfy this requirement, the Changescape backend will automatically generate and provide an image to satisfy the requirement.
 
 ## Hypercert Dimensions
 
 `work_scope`
-:   A list of tasks to be done by the project. In development parlance this is a list of *outputs*--e.g. # of solar panels installed, kilos of supplies, $ of direct aid, # of vaccines.
+:   A list of tasks to be done by the project. In economic development parlance, this is a list of *outputs*--e.g. # of solar panels installed, kilos of supplies, $ of direct aid, # of medicine doses.
 
 `work_timeframe`
-:   The time period during which the project work is to be carried out. In line with the Hypercerts standard, this is represented as an ordered pair of UTC timestamps.
+:   The time period during which the project work will be carried out. In line with the Hypercerts standard, this is represented as an ordered pair of UTC timestamps.
 
 `impact_scope`
 :   Inside the Changescape `impact scope` is used to refer thematically to projects by category. For example, the [UN Sustainable Development Goals (SDGs)](https://sdgs.un.org/goals) or the [Ecological Benefits Framework (EBF)](https://ebfcommons.org/lex-icons/). Because the Hypercerts data is only aspirational, it would be premature to immutably publish indicators, which are instead reserved to be published only once verified inside Change Credits.
@@ -34,7 +34,7 @@ Change Code leverages the Hypercerts protocol, itself developed from the ERC1155
 :   A list of participants (organizations) that are contributing to the work done in the project. Each element in the list is composed of an on-chain address, a name, and a weight. The purpose of the weight is to signal relative contribution and may optionally be used to weight distributions among contributors.
 
 `rights`
-:   As of version 1.0 of the Hypercerts standard, this value can only be set to *public display*. As it is a required field, Change Code simply applies the default value but does not otherwise use this information.
+:   As of version 1.0 of the Hypercerts standard, this value can only be set to *public display*. As this is a required field, Change Code applies the default value but does not otherwise use this information.
 
 `hidden_properties`
 :   In development
@@ -78,4 +78,4 @@ Change Code leverages the Hypercerts protocol, itself developed from the ERC1155
 }
 ```
 
-Additional details on the Hypercerts implementation itself can be found in the documentation [here](https://hypercerts.org/docs/implementation/metadata).
+Additional details on the Hypercerts implementation can be found in the documentation [here](https://hypercerts.org/docs/implementation/metadata).
