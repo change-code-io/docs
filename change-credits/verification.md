@@ -29,14 +29,14 @@ sequenceDiagram
     end
 ```
 
-As shown in the above sequence diagram, the process of verification can (and often will) be carried out as a loop. As a project is implemented over a period of weeks, months, or even years, the Good Generator may periodically submit claim attestations on recent accomplishments and evidence. As soon as these claims are available (or at some pre-arranged cadence), Verifiers may review this data and submit their own attestations. Finally, with these review attestations published, the Changescape programmatically mints Change Credits in accordance with the impact quantity specified by the Verifiers.
+As shown in the above sequence diagram, the process of verification can (and often will) be carried out as a loop. As a project is implemented over weeks, months, or even years, the Good Generator may periodically submit evidence and claim attestations on recent accomplishments. Verifiers can review this data and submit their attestations when these claims are available (or at some pre-arranged cadence). Finally, with these review attestations published, the Changescape programmatically mints Change Credits in accordance with the impact quantity specified by the Verifiers.
 
-By allowing for interim data reporting, the protocol enables Verifiers to have access to data in a more timely manner, which in practice enables more robust dispute or follow up. Additionally, with this setup, Change Credits are available to Partners sooner than if all reporting were unnecessarily forced to only occur at the end of a project's timeline.
+By allowing for interim data reporting, the protocol enables Verifiers to have access to data in a more timely manner, which, in practice, enables more robust dispute or follow-up. Additionally, with this setup, Change Credits are available to Partners sooner than if all reporting were forced to occur only at the end of a project's timeline.
 
 ## Verifiers
 
-Verifiers are experts impact measurement and evaluation selected to review data provided by Good Generators and assess the veracity and quantity of impact generated. When a project is instantiated, Verifers are specified along with an approval quorum. For example, a project may have listed 3 potential verifiers with any 2 being required to approve the project's claims for Change Credits to be issue.
+Verifiers are experts in impact measurement and evaluation selected to 1) review data provided by Good Generators, and 2) assess the veracity and quantity of impact generated. When a project is instantiated, Verifers are specified along with an approval quorum. For example, a project may have listed 3 potential verifiers with any 2 being required to approve the project's claims for Change Credits to be issued.
 
-When it comes to the quantity of Change Credits to be issued, this number is obtained by a simple average of the all quantities reported by each approving Verifier.
+When it comes to the quantity of Change Credits to be issued, this number is obtained by averaging the individual quantities reported by each approving Verifier.
 
-In the initial iteration of the Changescape, Verifiers are proposed by a project's Good Generator and approved by Change Code based on their expertise while confirming they are free from any conflicts of interest. In future versions of the protocol, this process is set to be upgraded to have Verifiers organized as a collective (or DAO) with the ability to control its own membership.
+In the initial iteration of the Changescape, Verifiers are proposed by a project's Good Generator and approved by Change Code based on their expertise, and importantly, confirming they are free from any conflicts of interest. In future versions of the protocol, this process is set to be upgraded to have Verifiers organized as a collective (or DAO) with the ability to control its own membership.
